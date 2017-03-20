@@ -1,0 +1,13 @@
+body{
+  font-size: 18px;
+}
+
+h1, p{
+  margin-left: 45px;
+  width: 300px;
+}
+
+p{
+  padding-left: 20px;
+  border-left: 1px solid black;
+}

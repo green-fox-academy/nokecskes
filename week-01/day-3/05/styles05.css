@@ -1,0 +1,23 @@
+body{
+  margin: 25px 45px;
+}
+
+h1, .list {
+  color: #000AE5;
+}
+
+h2{
+  color: #F8AE0D;
+}
+
+.sub1, .sub2{
+  color: #0A0B0F;
+}
+
+.list{
+  list-style: square;
+}
+
+.sub1{
+  list-style: disc;
+}

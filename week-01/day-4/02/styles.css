@@ -1,0 +1,49 @@
+.container-one {
+  /*position: relative;*/
+  margin: 10px auto 10px 5px;
+}
+
+.text-one {
+  /*position:absolute;*/
+  font: 16px courier;
+  color: white;
+  text-align: center;
+  /*width: 100%;*/
+  padding: 5%;
+  border: 1px solid black;
+  width: 400px;
+  height: auto;
+}
+
+.text-one {
+  background-color: #FF6347;
+}
+
+.text-two {
+  background-color: #643579;
+}
+
+.text-three {
+  background-color: #808080;
+}
+
+img{
+  width: 80px;
+  height: auto;
+}
+
+.left {
+  position: absolute;
+  padding-top: 50%;
+  left: 0;
+}
+
+/*.centered {
+  height: 48px;
+  position: absolute;
+}
+
+.right {
+  height: 32px;
+  position: absolute;
+}*/
