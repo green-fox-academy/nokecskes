@@ -26,7 +26,7 @@ public class DrawTriangle {
 
         for (int i = 0; i < (height + 1); i++){
             for (int k = 0; k < i ; k++){
-                    System.out.print(asterix);
+                    System.out.print(asterisk);
                 }
             System.out.print("\n");
         }
