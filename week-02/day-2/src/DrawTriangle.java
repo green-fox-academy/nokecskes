@@ -18,7 +18,7 @@ public class DrawTriangle {
         //
         // The triangle should have as many lines as the number was
 
-        String asterix = "*";
+        String asterisk = "*";
 
         System.out.println("Please give me an integer: ");
         Scanner scanner = new Scanner(System.in);
