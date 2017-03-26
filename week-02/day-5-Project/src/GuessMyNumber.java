@@ -30,22 +30,16 @@ public class GuessMyNumber {
 
     do {
       int guess = askUserInput();
-      if (guess < toGuess){
-        lives -=1;
-        System.out.printf("Too low. You have %d lives left.\n", lives);
-      }
-      else if(guess > toGuess){
-        lives -=1;
-        System.out.printf("Too high. You have %d lives left.\n", lives);;
+      if(guess == toGuess){
+        System.out.printf("Congratulations. You won!\n");
+        break;
       }
       else{
-        System.out.printf("Congratulations. You won!\n");
+        lives -= 1;
+        giveHintToUser(guess, toGuess, lives);
       }
     }while(lives > 0);
 
-    if(lives == 0){
-      System.out.printf("Sorry, this time you couldn't figure it out! The number was: %d\n", toGuess);
-    }
   }
 
   public static int askUserInput(){
@@ -57,6 +51,21 @@ public class GuessMyNumber {
   public static int numberGenerator(int minimum, int maximum) {
     int randomNr = minimum + (int) (Math.random() * ((maximum - minimum) + 1));
     return randomNr;
+  }
+
+  public static void giveHintToUser(int inputNumber, int numberToGuess, int lives){
+
+    if (lives == 0){
+      System.out.printf("Sorry, this time you couldn't figure it out!\nThe number was: %d\n", numberToGuess);
+    }
+    else{
+      if (inputNumber < numberToGuess){
+        System.out.printf("Too low. You have %d lives left.\n", lives);
+      }
+      else if(inputNumber > numberToGuess){
+        System.out.printf("Too high. You have %d lives left.\n", lives);;
+      }
+    }
   }
 
 }
