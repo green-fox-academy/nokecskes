@@ -22,6 +22,8 @@ public class GuessMyNumber {
     System.out.println("And what should be the highest number?");
     int highestNr = askUserInput();
 
+    int toGuess = numberGenerator(lowestNr, highestNr);
+
 
 
   }
@@ -30,6 +32,11 @@ public class GuessMyNumber {
     Scanner scanner = new Scanner(System.in);
     int input = scanner.nextInt();
     return input;
+  }
+
+  public static int numberGenerator(int minimum, int maximum) {
+    int randomNr = minimum + (int) (Math.random() * ((maximum - minimum) + 1));
+    return randomNr;
   }
 
 }
