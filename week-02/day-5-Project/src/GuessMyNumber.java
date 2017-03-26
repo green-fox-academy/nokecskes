@@ -35,6 +35,7 @@ public class GuessMyNumber {
         System.out.printf("Too low. You have %d lives left.\n", lives);
       }
       else if(guess > toGuess){
+        lives -=1;
         System.out.printf("Too high. You have %d lives left.\n", lives);;
       }
       else{
