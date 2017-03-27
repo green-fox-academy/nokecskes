@@ -20,7 +20,7 @@ public class Lotto {
       Path filePath = Paths.get("assets/otos.csv");
       List<String> lines = Files.readAllLines(filePath);
       ArrayList<String> lottoNumbers = new ArrayList<String>();
-      HashMap<String, Integer> occurances = new HashMap<String, Integer>()
+      HashMap<String, Integer> occurances = new HashMap<String, Integer>();
 
       for (int i = 0; i < 3 ; i++) {
         String oneLine = lines.get(i);
@@ -35,18 +35,21 @@ public class Lotto {
       Collections.sort(lottoNumbers);
 
       for (int i = 0; i <lottoNumbers.size() ; i++) {
-        System.out.println(lottoNumbers.get(i));
-
-
+        String currentToBeKey = lottoNumbers.get(i);
+        if (occurances.get(currentToBeKey) != null){
+          occurances.put(currentToBeKey, occurances.get(currentToBeKey) + 1);
+        }
+        else{
+          occurances.putIfAbsent(currentToBeKey, 1);
+        }
       }
 
-
-
-
+      System.out.println(occurances.get("50"));
 
     } catch (Exception e) {
       System.out.println("Uh-oh, an error happend: " + e.getClass());
     }
+
 
   }
 
