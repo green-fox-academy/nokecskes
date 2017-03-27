@@ -40,7 +40,7 @@ public class Factorio {
 
     public static int factorio (int toFactor) {
 
-        if (toFactor > 1){
+        if (toFactor > 0){
             int factored = toFactor * factorio(toFactor - 1);
             return factored;
         }
