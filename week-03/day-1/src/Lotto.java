@@ -34,7 +34,7 @@ public class Lotto {
       Collections.sort(lottoNumbers);
 
       HashMap<Integer, Integer> occurances = new HashMap<Integer, Integer>();
-      for (int i = 0; i <lottoNumbers.size() ; i++) {
+      for (int i = 0; i < lottoNumbers.size() ; i++) {
         String currentToBeKey = lottoNumbers.get(i);
         int keyValue = Integer.parseInt(currentToBeKey);
         if (occurances.get(keyValue) != null){
@@ -56,14 +56,11 @@ public class Lotto {
       System.out.println(minimumOccurance);
 
       for (int i = 0; i < occurances.size(); i++) {
-        if(occurances.get(i + 1) > (minimumOccurance)){
-          System.out.println();
+        if(occurances.get(i + 1) > (minimumOccurance - 1)){
+          System.out.print(i + 1);
+          System.out.println(": " + occurances.get(i + 1));
         }
       }
-
-
-
-
     } catch (Exception e) {
       System.out.println("Uh-oh, an error happend: " + e.getClass());
     }
