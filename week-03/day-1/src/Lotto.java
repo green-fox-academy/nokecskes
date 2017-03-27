@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import sun.plugin2.message.Conversation;
 
 public class Lotto {
 
@@ -20,7 +21,7 @@ public class Lotto {
       Path filePath = Paths.get("assets/otos.csv");
       List<String> lines = Files.readAllLines(filePath);
       ArrayList<String> lottoNumbers = new ArrayList<String>();
-      HashMap<String, Integer> occurances = new HashMap<String, Integer>();
+      HashMap<Integer, Integer> occurances = new HashMap<Integer, Integer>();
 
       for (int i = 0; i < 3 ; i++) {
         String oneLine = lines.get(i);
@@ -36,15 +37,16 @@ public class Lotto {
 
       for (int i = 0; i <lottoNumbers.size() ; i++) {
         String currentToBeKey = lottoNumbers.get(i);
-        if (occurances.get(currentToBeKey) != null){
-          occurances.put(currentToBeKey, occurances.get(currentToBeKey) + 1);
+        int keyValue = Integer.parseInt(currentToBeKey);
+        if (occurances.get(keyValue) != null){
+          occurances.put(keyValue, occurances.get(keyValue) + 1);
         }
         else{
-          occurances.putIfAbsent(currentToBeKey, 1);
+          occurances.putIfAbsent(keyValue, 1);
         }
       }
 
-      System.out.println(occurances.get("50"));
+      System.out.println(occurances.get(50));
 
     } catch (Exception e) {
       System.out.println("Uh-oh, an error happend: " + e.getClass());
