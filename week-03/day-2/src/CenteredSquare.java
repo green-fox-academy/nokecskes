@@ -12,6 +12,14 @@ public class CenteredSquare {
   public static void mainDraw(Graphics graphics){
     // draw a green 10x10 square to the canvas' center.
 
+    graphics.setColor(Color.green);
+    graphics.drawLine(145, 145, 155, 145);
+    graphics.drawLine(155, 145, 155, 155);
+    graphics.drawLine(155, 155, 145, 155);
+    graphics.drawLine(145, 155, 145, 145);
+
+
+
 
 
   }
