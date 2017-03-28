@@ -18,13 +18,14 @@ public class PurpleSteps {
     for (int i = 0; i < 19 ; i++) {
       int topLeft = 10 + (i * 10);
       drawColoredSquare(topLeft, size, graphics);
-      
     }
   }
 
   public static void drawColoredSquare(int topLeft, int squareSize, Graphics graphics) {
     graphics.setColor(new Color(186,85,211));
     graphics.fillRect(topLeft, topLeft, squareSize, squareSize);
+    graphics.setColor(Color.black);
+    graphics.drawRect(topLeft, topLeft, squareSize, squareSize);
   }
 
 
