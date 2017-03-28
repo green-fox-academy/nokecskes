@@ -12,9 +12,19 @@ public class FourRectangles {
   public static void mainDraw(Graphics graphics){
     // draw four different size and color rectangles.
 
+    for (int i = 0; i < 5 ; i++) {
+      System.out.println(randomColorGenerator());
+    }
 
 
   }
+
+  public static int randomColorGenerator (){
+    int random = (int) (Math.random() * 256);
+    return random;
+  }
+
+
 
   //    Don't touch the code below
   public static void main(String[] args) {
