@@ -26,8 +26,8 @@ public class FunctionToCenter {
     }
   }
 
-  public static void drawLineToCenter (int startX, int startY, Graphics graphics){
-    graphics.drawLine(startX, startY, canvasSize / 2, canvasSize / 2 );
+  public static void drawLineToCenter (int startX, int startY, Graphics graphics) {
+    graphics.drawLine(startX, startY, canvasSize / 2, canvasSize / 2);
   }
 
 
