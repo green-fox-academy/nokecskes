@@ -15,23 +15,19 @@ public class RainbowBoxFunction {
     // and draws a square of that size and color to the center of the canvas.
     // create a loop that fills the canvas with rainbow colored squares.
 
-    Color[] rainbowColors = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(75,0,130), new Color(238,130,238)};
+    Color[] rainbowColors = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(75,0,130), new Color(238,130,238)}; 
+    int squareSize = 0;
 
-    for (int i = 0; i < 7 ; i++) {
-      int squareSize = randomNumberGenerator();
+    for (int i = 0; i < 7 ; i++){
+      squareSize = (7 - i) * 30;
       drawSquare(squareSize, rainbowColors[i], graphics);
     }
-  }
-
-  public static int randomNumberGenerator() {
-    int random = (int) (Math.random() * 300);
-    return random;
   }
 
   public static void drawSquare(int squareSize, Color color, Graphics graphics) {
     int startPoint = 150 - (squareSize / 2);
     graphics.setColor(color);
-    graphics.drawRect(startPoint, startPoint, squareSize, squareSize);
+    graphics.fillRect(startPoint, startPoint, squareSize, squareSize);
   }
 
 
