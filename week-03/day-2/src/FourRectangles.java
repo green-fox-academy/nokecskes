@@ -13,11 +13,14 @@ public class FourRectangles {
     // draw four different size and color rectangles.
 
     for (int i = 0; i < 4 ; i++) {
+      int startX = randomStartGenerator();
+      int startY = randomStartGenerator();
+      int width = randomEdgeGenerator(320 - startX);
+      int height = randomEdgeGenerator(343 - startY);
+
       graphics.setColor(new Color(randomColorGenerator(), randomColorGenerator(), randomColorGenerator()));
-      graphics.drawRect(randomSizeGenerator(), randomSizeGenerator(), randomSizeGenerator(), randomSizeGenerator());
+      graphics.drawRect(startX, startY, width, height);
     }
-
-
   }
 
   public static int randomColorGenerator() {
@@ -25,8 +28,13 @@ public class FourRectangles {
     return random;
   }
 
-  public static int randomSizeGenerator() {
+  public static int randomStartGenerator() {
     int random = (int) (Math.random() * 301);
+    return random;
+  }
+
+  public static int randomEdgeGenerator(int maximum) {
+    int random = (int) (Math.random() * (maximum + 1));
     return random;
   }
 
