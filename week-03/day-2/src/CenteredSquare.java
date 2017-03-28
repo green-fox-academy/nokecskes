@@ -13,18 +13,8 @@ public class CenteredSquare {
     // draw a green 10x10 square to the canvas' center.
 
     int squareSize = 10;
-    int halfEdgeOfSquare = squareSize / 2;
-
     graphics.setColor(Color.green);
-    graphics.drawLine(150 - halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare);
-    graphics.drawLine(150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 + halfEdgeOfSquare);
-    graphics.drawLine(150 + halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare);
-    graphics.drawLine(150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 - halfEdgeOfSquare);
-
-
-
-
-
+    graphics.drawRect(150 - (squareSize / 2), 150 - (squareSize / 2), squareSize, squareSize);
   }
 
   //    Don't touch the code below
@@ -46,3 +36,16 @@ public class CenteredSquare {
   }
 
 }
+
+
+/* First, longer version:
+    int squareSize = 10;
+    int halfEdgeOfSquare = squareSize / 2;
+
+    graphics.setColor(Color.green);
+    graphics.drawLine(150 - halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare);
+    graphics.drawLine(150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 + halfEdgeOfSquare);
+    graphics.drawLine(150 + halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare);
+    graphics.drawLine(150 - halfEdgeOfSquare, 150 + halfEdgeOfSquare, 150 - halfEdgeOfSquare, 150 - halfEdgeOfSquare);
+
+ */
