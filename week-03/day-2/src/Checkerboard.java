@@ -12,7 +12,16 @@ public class Checkerboard {
   public static void mainDraw(Graphics graphics){
     // fill the canvas with a checkerboard pattern.
 
+    int sizeOfSquares = 10;
 
+    for (int i = 0; i < 8 ; i++) {
+      if((i % 2) == 0){
+        drawCheckLine();
+      }
+      
+    }
+    
+    
 
   }
 
