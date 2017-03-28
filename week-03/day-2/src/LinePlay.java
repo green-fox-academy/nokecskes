@@ -24,13 +24,13 @@ public class LinePlay {
   }
 
   public static void drawLineFromTopToRigt(int startX, int startY, Graphics graphics) {
-    for (int i = 0; i < 301 ; i += 20) {
+    for (int i = 20; i < (canvasMax + 1) ; i += 20) {
       graphics.drawLine(startX + i, startY, canvasMax, canvasMin + i);
     }
   }
 
   public static void drawLineFromLeftToBottom(int startX, int startY, Graphics graphics) {
-    for (int i = 0; i < 301 ; i += 20) {
+    for (int i = 20; i < (canvasMax + 1) ; i += 20) {
       graphics.drawLine(startX, startY + i, canvasMin + i, canvasMax);
     }
   }
