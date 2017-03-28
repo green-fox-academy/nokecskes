@@ -16,11 +16,8 @@ public class Drawing {
     graphics.setColor(Color.RED);
     graphics.drawLine(0, 150, 300, 150);
 
-    
-
-
-
-
+    graphics.setColor(Color.green);
+    graphics.drawLine(150, 0, 150, 300);
   }
 
   //    Don't touch the code below
