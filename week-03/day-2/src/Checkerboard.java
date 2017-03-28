@@ -10,43 +10,30 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Checkerboard {
 
   public static final int  sizeOfSquares = 20;
+  public static final int margin = 10;
 
   public static void mainDraw(Graphics graphics){
     // fill the canvas with a checkerboard pattern.
 
-    int topleftX = 10;
-    int topleftY = 10;
+    int topLeftX = 0;
+    int topLeftY = 0;
 
-    for (int i = 0; i < 8 ; i++) {
-      if ((i % 2) == 0){
-        drawCheckLineOdd(topleftX, topleftY, graphics);
-        topleftY += sizeOfSquares;
-      }
-      else{
-        drawCheckLineEven(topleftX, topleftY, graphics);
-        topleftY += sizeOfSquares;
+    for (int i = 0; i < 8; i++) {
+      topLeftX = margin;
+      topLeftY = margin + (i * sizeOfSquares);
+      for (int j = 0; j < 8; j++) {
+        drawCheckLine(topLeftX, topLeftY, graphics, i, j);
+        topLeftX += sizeOfSquares;
       }
     }
   }
 
-  public static void drawCheckLineOdd(int startX, int startY, Graphics graphics){
-    for (int i = 0; i < 8 ; i++) {
-      graphics.drawRect(startX, startY, sizeOfSquares, sizeOfSquares);
-      if((i % 2) == 0){
-        graphics.fillRect(startX, startY, sizeOfSquares, sizeOfSquares);
+  public static void drawCheckLine(int topLeftX, int topLeftY, Graphics graphics, int row, int column){
+    graphics.drawRect(topLeftX, topLeftY, sizeOfSquares, sizeOfSquares);
+    int isSquareToFill = (row + column) % 2;
+      if( isSquareToFill == 0){
+        graphics.fillRect(topLeftX, topLeftY, sizeOfSquares, sizeOfSquares);
       }
-      startX +=sizeOfSquares;
-    }
-  }
-
-  public static void drawCheckLineEven(int startX, int startY, Graphics graphics){
-    for (int i = 0; i < 8 ; i++) {
-      graphics.drawRect(startX, startY, sizeOfSquares, sizeOfSquares);
-      if((i % 2) != 0){
-        graphics.fillRect(startX, startY, sizeOfSquares, sizeOfSquares);
-      }
-      startX +=sizeOfSquares;
-    }
   }
 
 
