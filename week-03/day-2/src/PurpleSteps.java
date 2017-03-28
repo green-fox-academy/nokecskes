@@ -16,15 +16,15 @@ public class PurpleSteps {
     int size = 10;
 
     for (int i = 0; i < 19 ; i++) {
-      int start = 10 + (i * 10);
+      int topLeft = 10 + (i * 10);
+      drawColoredSquare(topLeft, size, graphics);
       
-      drawColoredSquare();
-
     }
   }
 
-  public static void drawColoredSquare() {
-
+  public static void drawColoredSquare(int topLeft, int squareSize, Graphics graphics) {
+    graphics.setColor(new Color(186,85,211));
+    graphics.fillRect(topLeft, topLeft, squareSize, squareSize);
   }
 
 
