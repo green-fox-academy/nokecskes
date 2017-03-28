@@ -19,8 +19,11 @@ public class CenterBoxFunction {
       int squareSize = (int) (Math.random() * 300);
       drawSquare(squareSize, graphics);
     }
+  }
 
-
+  public static void drawSquare(int squareSize, Graphics graphics) {
+    int startPoint = 150 - (squareSize / 2);
+    graphics.drawRect(startPoint, startPoint, squareSize, squareSize);
   }
 
   //    Don't touch the code below
