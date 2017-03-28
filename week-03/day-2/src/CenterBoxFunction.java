@@ -15,6 +15,10 @@ public class CenterBoxFunction {
     // and draws a square of that size to the center of the canvas.
     // draw 3 squares with that function.
 
+    for (int i = 0; i < 3 ; i++) {
+      int squareSize = (int) (Math.random() * 300);
+      drawSquare(squareSize, graphics);
+    }
 
 
   }
