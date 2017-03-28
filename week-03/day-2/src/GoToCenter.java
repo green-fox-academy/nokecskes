@@ -15,7 +15,12 @@ public class GoToCenter {
     // and draws a line from that point to the center of the canvas.
     // draw 3 lines with that function.
 
-    drawLineToCenter(25, 25, graphics);
+    for (int i = 0; i < 3 ; i++) {
+      int startX = (int)(Math.random()* 300);
+      int startY = (int)(Math.random()* 300);
+      drawLineToCenter(startX, startY, graphics);
+    }
+
   }
 
   public static void drawLineToCenter(int StartX, int StartY, Graphics graphics){
