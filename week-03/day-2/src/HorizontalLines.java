@@ -23,7 +23,22 @@ public class HorizontalLines {
   }
 
   public static void drawHorizontalLine(int StartX, int StartY, Graphics graphics){
-    graphics.drawLine(StartX, StartY, StartX + 50, StartY);
+    int direction = calculateDirection();
+    graphics.drawLine(StartX, StartY, StartX + (50 * direction), StartY);
+  }
+
+  public static int calculateDirection(){
+    double random = Math.random();
+    int direction = 0;
+
+    if(random < 0.5){
+      direction = 1;
+    }
+    else{
+      direction = -1;
+    }
+
+    return direction;
   }
 
   //    Don't touch the code below
