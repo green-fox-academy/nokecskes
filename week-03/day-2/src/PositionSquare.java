@@ -15,6 +15,24 @@ public class PositionSquare {
     // and draws a 50x50 square from that point.
     // draw 3 squares with that function.
 
+    for (int i = 0; i < 3; i++) {
+      int startX = randomNumberGenerator();
+      int startY = randomNumberGenerator();
+
+    }
+    drawSquare(25, 100);
+
+
+
+  }
+
+  public static int randomNumberGenerator() {
+    int random = (int) (Math.random() * 251);
+    return random;
+  }
+
+  public static void drawSquare() {
+
 
 
   }
