@@ -15,15 +15,13 @@ public class PositionSquare {
     // and draws a 50x50 square from that point.
     // draw 3 squares with that function.
 
+    int sizeOfSquare = 50;
+
     for (int i = 0; i < 3; i++) {
       int startX = randomNumberGenerator();
       int startY = randomNumberGenerator();
-
+      drawSquare(startX, startY, sizeOfSquare, graphics);
     }
-    drawSquare(25, 100);
-
-
-
   }
 
   public static int randomNumberGenerator() {
@@ -31,10 +29,8 @@ public class PositionSquare {
     return random;
   }
 
-  public static void drawSquare() {
-
-
-
+  public static void drawSquare(int topLeftX, int topLeftY, int sizeOfSquare, Graphics graphics) {
+    graphics.drawRect(topLeftX, topLeftY, sizeOfSquare, sizeOfSquare);
   }
 
   //    Don't touch the code below
