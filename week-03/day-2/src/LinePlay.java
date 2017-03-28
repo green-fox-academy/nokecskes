@@ -12,20 +12,26 @@ public class LinePlay {
   public static final int canvasMin = 0;
   public static final int canvasMax = 300;
 
-  public static void LinePlay(Graphics graphics){
+  public static void mainDraw(Graphics graphics){
     // reproduce this:
     // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/line-play/r1.png]
 
     graphics.setColor(new Color(138,43,226));
-    drawLinetoNeighborEdge(canvasMin, canvasMin, graphics);
+    drawLineFromTopToRigt(canvasMin, canvasMin, graphics);
 
-
-
+    graphics.setColor(Color.green);
+    drawLineFromLeftToBottom(canvasMin, canvasMin, graphics);
   }
 
-  public static void drawLinetoNeighborEdge(int startX, int startY, Graphics graphics) {
+  public static void drawLineFromTopToRigt(int startX, int startY, Graphics graphics) {
     for (int i = 0; i < 301 ; i += 20) {
       graphics.drawLine(startX + i, startY, canvasMax, canvasMin + i);
+    }
+  }
+
+  public static void drawLineFromLeftToBottom(int startX, int startY, Graphics graphics) {
+    for (int i = 0; i < 301 ; i += 20) {
+      graphics.drawLine(startX, startY + i, canvasMin + i, canvasMax);
     }
   }
 
