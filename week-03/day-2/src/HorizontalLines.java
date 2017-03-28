@@ -15,8 +15,15 @@ public class HorizontalLines {
     // and draws a 50 long horizontal line from that point.
     // draw 3 lines with that function.
 
+    for (int i = 0; i < 3 ; i++) {
+      int startX = (int)(Math.random()* 300);
+      int startY = (int)(Math.random()* 300);
+      drawHorizontalLine(startX, startY, graphics);
+    }
+  }
 
-
+  public static void drawHorizontalLine(int StartX, int StartY, Graphics graphics){
+    graphics.drawLine(StartX, StartY, StartX + 50, StartY);
   }
 
   //    Don't touch the code below
