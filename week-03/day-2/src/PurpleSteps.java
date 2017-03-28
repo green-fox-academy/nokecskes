@@ -14,9 +14,10 @@ public class PurpleSteps {
     // [https://github.com/greenfox-academy/teaching-materials/blob/master/exercises/drawing/purple-steps/r3.png]
 
     int size = 10;
+    int topLeft = 0,
 
     for (int i = 0; i < 19 ; i++) {
-      int topLeft = 10 + (i * 10);
+      topLeft = 10 + (i * 10);
       drawColoredSquare(topLeft, size, graphics);
     }
   }
