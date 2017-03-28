@@ -16,15 +16,22 @@ public class CenterBoxFunction {
     // draw 3 squares with that function.
 
     for (int i = 0; i < 3 ; i++) {
-      int squareSize = (int) (Math.random() * 300);
+      int squareSize = randomNumberGenerator();
       drawSquare(squareSize, graphics);
     }
+  }
+
+  public static int randomNumberGenerator() {
+    int random = (int) (Math.random() * 300);
+    return random;
   }
 
   public static void drawSquare(int squareSize, Graphics graphics) {
     int startPoint = 150 - (squareSize / 2);
     graphics.drawRect(startPoint, startPoint, squareSize, squareSize);
   }
+
+
 
   //    Don't touch the code below
   public static void main(String[] args) {
