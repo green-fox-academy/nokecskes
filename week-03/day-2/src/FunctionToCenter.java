@@ -10,6 +10,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class FunctionToCenter {
 
   public static final int canvasSize = 300;
+  public static final int canvasStart = 0;
 
   public static void mainDraw(Graphics graphics){
     // create a line drawing function that takes 2 parameters:
@@ -17,9 +18,12 @@ public class FunctionToCenter {
     // and draws a line from that point to the center of the canvas.
     // fill the canvas with lines from the edges, every 20 px, to the center.
 
-    
-
-
+    for (int i = 0; i < (canvasSize + 1); i += 20) {
+      drawLineToCenter(i, canvasStart, graphics);
+      drawLineToCenter(i, canvasSize, graphics);
+      drawLineToCenter(canvasStart, i, graphics);
+      drawLineToCenter(canvasSize, i, graphics);
+    }
   }
 
   public static void drawLineToCenter (int startX, int startY, Graphics graphics){
