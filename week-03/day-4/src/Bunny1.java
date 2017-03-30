@@ -10,7 +10,7 @@ public class Bunny1 {
     // We want to compute the total number of ears across all the bunnies recursively (without loops or multiplication).
 
     int bunnies = getUserInput();
-
+    System.out.println(bunnyEars(bunnies));
   }
 
   public static int getUserInput() {
@@ -23,6 +23,15 @@ public class Bunny1 {
     return inputInt;
   }
 
+  public static int bunnyEars(int bunnyAttendance) {
+    if (bunnyAttendance == 1){
+      return 2;
+    }
+    else {
+      int bunnyFloppiness = 2 + bunnyEars(bunnyAttendance - 1);
+      return bunnyFloppiness;
+    }
+  }
 
 
 }
