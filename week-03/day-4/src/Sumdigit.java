@@ -11,6 +11,7 @@ public class Sumdigit {
     // divide (/) by 10 removes the rightmost digit (126 / 10 is 12).
 
     int digitsToAdd = getUserInput();
+    System.out.println(addDigits(digitsToAdd));
   }
 
   public static int getUserInput() {
@@ -21,5 +22,16 @@ public class Sumdigit {
       inputInt = scanner.nextInt();
     }while(inputInt < 0);
     return inputInt;
+  }
+
+  public static int addDigits(int wholeNr) {
+    if (wholeNr < 10) {
+      return wholeNr;
+    }
+    else {
+      int sum = (wholeNr % 10) + addDigits(wholeNr / 10);
+      return sum;
+    }
+
   }
 }
