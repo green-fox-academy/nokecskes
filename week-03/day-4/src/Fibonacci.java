@@ -15,9 +15,6 @@ public class Fibonacci {
 
     int n = getUserInput();
     System.out.println(findFibonacci(n));
-
-
-
   }
 
   public static int getUserInput() {
