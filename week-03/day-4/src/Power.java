@@ -9,7 +9,9 @@ public class Power {
     // Given base and n that are both 1 or more, compute recursively (no loops)
     // the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
 
+    System.out.println("Give me the base: ");
     int base = getUserInput();
+    System.out.println("Give me the power (so I can rule the world :) ): ");
     int toPowerOf = getUserInput();
 
     System.out.println(power(base, toPowerOf));
@@ -19,7 +21,6 @@ public class Power {
     Scanner scanner = new Scanner(System.in);
     int inputInt = 0;
     do {
-      System.out.println("Give me a non negative number: ");
       inputInt = scanner.nextInt();
     }while(inputInt < 1);
     return inputInt;
