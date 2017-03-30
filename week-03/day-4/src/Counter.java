@@ -17,6 +17,7 @@ public class Counter {
     Scanner scanner = new Scanner(System.in);
     int inputInt = 0;
     do {
+      System.out.println("Give me a non negative number: ");
       inputInt = scanner.nextInt();
     }while(inputInt < 0);
     return inputInt;
