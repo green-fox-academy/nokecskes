@@ -12,9 +12,7 @@ public class Bunny2 {
     // number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
 
     int yummyBunnies = getUserInput();
-
     System.out.println(countMultiEaredBunnies(yummyBunnies));
-
   }
 
   public static int getUserInput() {
@@ -28,7 +26,17 @@ public class Bunny2 {
   }
 
   public static int countMultiEaredBunnies(int bunnyNumber) {
-    
+    if (bunnyNumber == 1){
+      return 2;
+    }
+    else if((bunnyNumber % 2) == 0 ) {
+      int bunnyFloppiness = 3 + countMultiEaredBunnies(bunnyNumber - 1);
+      return bunnyFloppiness;
+    }
+    else {
+      int bunnyFloppiness = 2 + countMultiEaredBunnies(bunnyNumber - 1);
+      return bunnyFloppiness;
+    }
   }
 
 }
