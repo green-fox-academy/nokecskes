@@ -11,6 +11,8 @@ public class Power {
 
     int base = getUserInput();
     int toPowerOf = getUserInput();
+
+    System.out.println(power(base, toPowerOf));
   }
 
   public static int getUserInput() {
@@ -23,7 +25,18 @@ public class Power {
     return inputInt;
   }
 
-  
+  public static int power (int base, int n) {
+    if(n < 1) {
+      return 1;
+    }
+    else {
+      n--;
+      int multiply = base * power(base, n);
+      return multiply;
+    }
+  }
+
+
 
 
 }
