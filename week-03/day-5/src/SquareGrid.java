@@ -3,9 +3,7 @@
  */
 
 import javax.swing.*;
-
 import java.awt.*;
-
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class SquareGrid {
@@ -34,7 +32,7 @@ public class SquareGrid {
     return randomColor;
   }
 
-
+  
   //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
