@@ -25,6 +25,7 @@ public class SquareGrid {
     squareFractal(startX - (squareSize / 4), startY + (squareSize / 4) * 3, squareSize / 2, graphics);
     squareFractal(startX + (squareSize / 4) * 3, startY - (squareSize / 4), squareSize / 2, graphics);
     squareFractal(startX + (squareSize / 4) * 3, startY + (squareSize / 4) * 3, squareSize / 2, graphics);
+    return;
   }
 
   public static int randomColorGenerator() {
@@ -32,7 +33,7 @@ public class SquareGrid {
     return randomColor;
   }
 
-  
+
   //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
