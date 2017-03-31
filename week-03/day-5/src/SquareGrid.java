@@ -20,12 +20,18 @@ public class SquareGrid {
       return;
     }
 
+    graphics.setColor(new Color(randomColorGenerator(), randomColorGenerator(), randomColorGenerator()));
     graphics.drawRect(startX, startY, squareSize, squareSize);
 
     squareFractal(startX - (squareSize / 4), startY - (squareSize / 4), squareSize / 2, graphics);
     squareFractal(startX - (squareSize / 4), startY + (squareSize / 4) * 3, squareSize / 2, graphics);
     squareFractal(startX + (squareSize / 4) * 3, startY - (squareSize / 4), squareSize / 2, graphics);
     squareFractal(startX + (squareSize / 4) * 3, startY + (squareSize / 4) * 3, squareSize / 2, graphics);
+  }
+
+  public static int randomColorGenerator() {
+    int randomColor = (int)(Math.random() * 256);
+    return randomColor;
   }
 
 
