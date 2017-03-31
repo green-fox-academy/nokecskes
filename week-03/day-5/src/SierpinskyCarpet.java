@@ -6,9 +6,7 @@ public class SierpinskyCarpet {
 
   public static void mainDraw(Graphics graphics){
     int size = 600;
-//    drawSquare(size / 3, size / 3, size, graphics);
-  drawSquare(size / 2, size / 2, size / 3, graphics);
-
+    drawSquare(size / 2, size / 2, size / 3, graphics);
   }
 
   public static void drawSquare(int centerX, int centerY, int squareSize, Graphics graphics) {
@@ -26,14 +24,7 @@ public class SierpinskyCarpet {
     drawSquare(centerX + squareSize, centerY - squareSize, squareSize / 3, graphics);
     drawSquare(centerX + squareSize, centerY, squareSize / 3, graphics);
     drawSquare(centerX + squareSize, centerY + squareSize, squareSize / 3, graphics);
-
-
-
-
-
   }
-
-
 
   //    Don't touch the code below
   public static void main(String[] args) {
