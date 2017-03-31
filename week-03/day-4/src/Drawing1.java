@@ -12,20 +12,13 @@ public class Drawing1 {
   public static void mainDraw(Graphics graphics){
     // reproduce the nice image :)
 
-    int size = 300;
+    int size = 600;
 
     graphics.setColor(Color.yellow);
-    graphics.fillRect(0,0, 320, 343);
+    graphics.fillRect(0,0, 620, 643);
 
     graphics.setColor(Color.black);
     fractalLines(0, 0, size, graphics);
-  }
-
-  public static void drawlines(int topleftX, int topleftY, int size, Graphics graphics) {
-    graphics.drawLine(topleftX + (size / 3) , topleftY, topleftX + (size / 3), topleftY + size);
-    graphics.drawLine(topleftX + (size / 3) * 2, topleftY, topleftX + (size / 3) * 2, topleftY + size);
-    graphics.drawLine(topleftX, topleftY + (size / 3), topleftX + size, topleftY + (size / 3));
-    graphics.drawLine(topleftX, topleftY + (size / 3) * 2, topleftX + size, topleftY + (size / 3) * 2);
   }
 
   public static void fractalLines(int topleftX, int topleftY, int size, Graphics graphics) {
@@ -33,20 +26,22 @@ public class Drawing1 {
       return;
     }
 
-    drawlines(topleftX + (size / 3), topleftY, (size / 3), graphics);
-    drawlines(topleftX + (size / 3), topleftY + (size / 3) * 2, (size / 3), graphics);
-    drawlines(topleftX, topleftY + (size / 3), (size / 3), graphics);
-    drawlines(topleftX + (size / 3) * 2, topleftY + (size / 3), (size / 3), graphics);
+    graphics.drawLine(topleftX + (size / 3) , topleftY, topleftX + (size / 3), topleftY + size);
+    graphics.drawLine(topleftX + (size / 3) * 2, topleftY, topleftX + (size / 3) * 2, topleftY + size);
+    graphics.drawLine(topleftX, topleftY + (size / 3), topleftX + size, topleftY + (size / 3));
+    graphics.drawLine(topleftX, topleftY + (size / 3) * 2, topleftX + size, topleftY + (size / 3) * 2);
+
+    fractalLines(topleftX + (size / 3), topleftY, (size / 3), graphics);
+    fractalLines(topleftX + (size / 3), topleftY + (size / 3) * 2, (size / 3), graphics);
+    fractalLines(topleftX, topleftY + (size / 3), (size / 3), graphics);
+    fractalLines(topleftX + (size / 3) * 2, topleftY + (size / 3), (size / 3), graphics);
   }
-
-
-
 
 
   //    Don't touch the code below
   public static void main(String[] args) {
     JFrame jFrame = new JFrame("Drawing");
-    jFrame.setSize(new Dimension(320, 343));
+    jFrame.setSize(new Dimension(620, 643));
     jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     jFrame.add(new ImagePanel());
     jFrame.setLocationRelativeTo(null);
