@@ -14,6 +14,7 @@ public class SierpinskyCarpet {
       return;
     }
 
+    graphics.setColor(new Color(randomColorGenerator(), randomColorGenerator(), randomColorGenerator()));
     graphics.fillRect(centerX - squareSize / 2, centerY - squareSize / 2, squareSize, squareSize);
 
     drawSquare(centerX - squareSize, centerY - squareSize, squareSize / 3, graphics);
@@ -24,6 +25,11 @@ public class SierpinskyCarpet {
     drawSquare(centerX + squareSize, centerY - squareSize, squareSize / 3, graphics);
     drawSquare(centerX + squareSize, centerY, squareSize / 3, graphics);
     drawSquare(centerX + squareSize, centerY + squareSize, squareSize / 3, graphics);
+  }
+
+  public static int randomColorGenerator() {
+    int randomColor = (int)(Math.random() * 256);
+    return randomColor;
   }
 
   //    Don't touch the code below
