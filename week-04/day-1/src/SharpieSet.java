@@ -20,14 +20,13 @@ public class SharpieSet {
     this.sharpies = new ArrayList<Sharpie>();
   }
 
-  public void add(Sharpie sharpie) {
+  /*public void add(Sharpie sharpie) {
     sharpies.add(sharpie);
   }
 
   public Sharpie get(int index) {
     return sharpies.get(index);
-  }
-
+  }*/
 
   public int countUsable() {
     int counter = 0;
@@ -53,24 +52,25 @@ public class SharpieSet {
 
     Sharpie one = new Sharpie("orange", 10);
     one.inkAmount = 0;
-    mySharpies.add(one);
+    mySharpies.sharpies.add(one);
 
     Sharpie two = new Sharpie("yellow", 10);
     two.inkAmount = 10;
-    mySharpies.add(two);
+    mySharpies.sharpies.add(two);
 
     Sharpie three = new Sharpie("purple", 10);
-    mySharpies.add(three);
+    mySharpies.sharpies.add(three);
 
-    System.out.println(mySharpies.get(0).inkAmount);
+    for (Sharpie sharpie : mySharpies.sharpies) {
+      System.out.println(sharpie.inkAmount);
+    }
 
     int good = mySharpies.countUsable();
     System.out.println(good);
 
     mySharpies.removeTrash();
-
-    System.out.println(mySharpies.get(0).inkAmount);
-    System.out.println(mySharpies.get(1).inkAmount);
+    for (Sharpie sharpie : mySharpies.sharpies) {
+      System.out.println(sharpie.inkAmount);
+    }
   }
-
 }
