@@ -19,4 +19,10 @@ public class Student {
   public void question(Teacher teacher) {
     teacher.answer();
   }
+
+  public static void main(String[] args) {
+    Teacher teacher = new Teacher();
+    Student student = new Student();
+    student.question(teacher);
+  }
 }
