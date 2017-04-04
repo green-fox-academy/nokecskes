@@ -6,10 +6,9 @@ package aircraft_carrier;
 public class AircraftF35 extends Aircraft {
 
   public AircraftF35() {
-    super();
-    ammoMax = 12;
-    baseDamage = 50;
+    super(12, 50, "AircraftF35");
   }
+
 }
 
 
