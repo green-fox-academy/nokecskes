@@ -6,7 +6,7 @@ package aircraft_carrier;
 public class AircraftF35 extends Aircraft {
 
   public AircraftF35() {
-    super(12, 50, "AircraftF35");
+    super(12, 50, "F35");
   }
 
 }
