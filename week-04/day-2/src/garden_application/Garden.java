@@ -37,7 +37,7 @@ public class Garden {
     float needsWater = needsWaterCounter(waterAmount);
     float waterPortion = waterAmount / needsWater;
 
-    System.out.printf("Watering with %f\n", waterAmount);
+    System.out.printf("Watering with %d\n", (int)waterAmount);
 
     for (Flower currentFlower : flowers) {
       if (currentFlower.needsWater()) {
