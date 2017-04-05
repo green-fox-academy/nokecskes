@@ -25,8 +25,27 @@ public class Extension {
   }
 
   boolean isVowel(char c) {
-    return Arrays.asList('a', 'u', 'o', 'e', 'i').contains(c);
+    c = charToLowerCase(c);
+    return Arrays.asList('a', 'á', 'u', 'ú', 'ü', 'ű', 'o', 'ó', 'ö', 'ő', 'e', 'é', 'i', 'í').contains(c);
   }
+
+  char charToLowerCase(char toChange) {
+    //other solution with ASCII
+    int asciiLetter = (int) toChange;
+    if(asciiLetter > 64 && asciiLetter < 91) {
+      asciiLetter += 32;
+      toChange = (char) asciiLetter;
+    }
+    return toChange;
+
+
+    /* one solution with conversion:
+    String letter = Character.toString(toChange);
+    letter = letter.toLowerCase();
+    toChange = letter.charAt(0);
+    return toChange;*/
+  }
+
 
   String translate(String hungarian) {
     String teve = hungarian;
