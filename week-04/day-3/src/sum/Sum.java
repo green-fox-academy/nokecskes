@@ -10,8 +10,10 @@ public class Sum {
 
   public int sumElts(List<Integer> eltsToSum) {
     int sum = 0;
-    for (int element : eltsToSum) {
-      sum += element;
+    if(eltsToSum != null){
+      for (int element : eltsToSum) {
+        sum += element;
+      }
     }
     return sum;
   }
@@ -22,11 +24,9 @@ public class Sum {
     myList.add(3);
     myList.add(6);
     Sum sum = new Sum();
-    int sum = sum.sumElts(myList);
-    System.out.println(sum);
+    int sumOfElts = sum.sumElts(myList);
+    System.out.println(sumOfElts);
   }
-
-
 }
 /*
 
