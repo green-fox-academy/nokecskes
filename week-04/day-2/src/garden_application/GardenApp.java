@@ -12,13 +12,13 @@ public class GardenApp {
     Garden myLittleGarden = new Garden();
 
     Flower flowerOne = new Flower("yellow", 4);
-    myLittleGarden.flowers.add(flowerOne);
+    myLittleGarden.myPlants.add(flowerOne);
     Flower flowerTwo = new Flower("blue", 2);
-    myLittleGarden.flowers.add(flowerTwo);
+    myLittleGarden.myPlants.add(flowerTwo);
     Tree treeOne = new Tree("purple", 4);
-    myLittleGarden.trees.add(treeOne);
+    myLittleGarden.myPlants.add(treeOne);
     Tree treeTwo = new Tree("orange", 5);
-    myLittleGarden.trees.add(treeTwo);
+    myLittleGarden.myPlants.add(treeTwo);
 
     myLittleGarden.status();
     myLittleGarden.waterPlant(40);

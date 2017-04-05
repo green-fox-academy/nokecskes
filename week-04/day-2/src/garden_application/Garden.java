@@ -10,23 +10,16 @@ import java.util.List;
 
 public class Garden {
 
-  List<Tree> trees;
-  List<Flower> flowers;
+  List<Plant> myPlants;
 
   public Garden() {
-    trees = new ArrayList<>();
-    flowers = new ArrayList<>();
+    myPlants = new ArrayList<>();
   }
 
   public float needsWaterCounter(float waterAmount) {
     float needsWater = 0;
-    for (Flower currentFlower : flowers) {
-      if (currentFlower.needsWater()) {
-        needsWater++;
-      }
-    }
-    for (Tree currentTree : trees) {
-      if (currentTree.needsWater()) {
+    for (Plant plant : myPlants) {
+      if (plant.needsWater()) {
         needsWater++;
       }
     }
@@ -39,25 +32,18 @@ public class Garden {
 
     System.out.printf("Watering with %d\n", (int)waterAmount);
 
-    for (Flower currentFlower : flowers) {
-      if (currentFlower.needsWater()) {
-        currentFlower.watering(waterPortion);
+    for (Plant plant : myPlants) {
+      if (plant.needsWater()) {
+        plant.watering(waterPortion);
       }
     }
-    for (Tree currentTree : trees) {
-      if (currentTree.needsWater()) {
-        currentTree.watering(waterPortion);
-      }
-    }
+
     status();
   }
 
   public void status() {
-    for (Flower currentFlower : flowers) {
-      currentFlower.status();
-    }
-    for (Tree currentTree : trees) {
-      currentTree.status();
+    for (Plant plant : myPlants) {
+      plant.status();
     }
   }
 
