@@ -1,14 +1,9 @@
-/**
- * Created by Connor on 2017.04.10..
- */
+
 public class EmptyTile extends Tile {
 
-  public EmptyTile (int positionX, int positionY) {
+  public EmptyTile(int positionX, int positionY) {
     super(positionX, positionY);
+    super.fileName = "assets/floor.png";
   }
 
-  @Override
-  public void drawTile(int positionX, int positionY) {
-    super.drawTile("assets/floor.png", positionX, positionY);
-  }
 }
