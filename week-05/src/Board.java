@@ -25,8 +25,9 @@ public class Board extends JComponent implements KeyListener {
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
 
-    EmptyTile testTile = new EmptyTile(100, 100);
-    testTile.drawTile(graphics);
+    Area myGameArea = new Area();
+    myGameArea.drawArea(graphics);
+
   }
 
   public static void main(String[] args) {
