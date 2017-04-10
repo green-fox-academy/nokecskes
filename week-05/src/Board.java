@@ -6,12 +6,14 @@ import java.awt.*;
 
 public class Board extends JComponent implements KeyListener {
 
-  int testBoxX;
-  int testBoxY;
+  int size;
+  Area myGameArea;
+  Hero myHero;
 
   public Board() {
-    testBoxX = 300;
-    testBoxY = 300;
+    size = 72;
+    myGameArea = new Area();
+    myHero = new Hero();
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -25,8 +27,9 @@ public class Board extends JComponent implements KeyListener {
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
 
-    Area myGameArea = new Area();
-    myGameArea.draw(graphics);
+    myGameArea.drawArea(graphics);
+    myHero.draw(graphics);
+
   }
 
   public static void main(String[] args) {
@@ -53,7 +56,15 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-
+    if (e.getKeyCode() == KeyEvent.VK_UP) {
+      myHero.fileName = "assets/hero-up.png";
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+      myHero.fileName = "assets/hero-down.png";
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+      myHero.fileName = "assets/hero-left.png";
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      myHero.fileName = "assets/hero-right.png";
+    }
   }
 
   // But actually we can use just this one for our goals here
@@ -61,13 +72,13 @@ public class Board extends JComponent implements KeyListener {
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      testBoxY -= 100;
+      myHero.positionY -= size;
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      testBoxY += 100;
+      myHero.positionY += size;
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      testBoxX -= 100;
+      myHero.positionX -= size;
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      testBoxX += 100;
+      myHero.positionX += size;
     }
     // and redraw to have a new picture with the new coordinates
     //invalidate();
