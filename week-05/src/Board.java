@@ -26,8 +26,7 @@ public class Board extends JComponent implements KeyListener {
     // you can create and draw an image using the class below e.g.
 
     Area myGameArea = new Area();
-    myGameArea.drawArea(graphics);
-
+    myGameArea.draw(graphics);
   }
 
   public static void main(String[] args) {

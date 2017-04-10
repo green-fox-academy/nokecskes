@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class Area {
+public class Area extends GameObject {
 
   int[][] area;
   ArrayList<ArrayList<Tile>> boardTiles;
@@ -24,10 +24,10 @@ public class Area {
 
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
-        if(area[i][j] == 0) {
+        if (area[i][j] == 0) {
           EmptyTile tile = new EmptyTile(0 + (j * 72), 0 + (i * 72));
           rowOfTiles.add(tile);
-        } else if(area[i][j] == 1) {
+        } else if (area[i][j] == 1) {
           NotEmptyTile tile = new NotEmptyTile(0 + (j * 72), 0 + (i * 72));
           rowOfTiles.add(tile);
         }
@@ -36,13 +36,12 @@ public class Area {
     }
   }
 
-  public void drawArea(Graphics graphics) {
+  @Override
+  public void draw(Graphics graphics) {
     for (ArrayList<Tile> tiles : boardTiles) {
       for (Tile tile : tiles) {
-        tile.drawTile(graphics);
+        tile.draw(graphics);
       }
     }
   }
-
-
 }

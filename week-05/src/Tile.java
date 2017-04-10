@@ -1,6 +1,6 @@
 import java.awt.Graphics;
 
-public class Tile {
+public class Tile extends GameObject {
 
   int positionX;
   int positionY;
@@ -9,13 +9,13 @@ public class Tile {
   public Tile(int positionX, int positionY) {
     this.positionX = positionX;
     this.positionY = positionY;
-    fileName = "no filename";
+    fileName = "unknown";
   }
 
-  public void drawTile(Graphics graphics) {
+  @Override
+  public void draw(Graphics graphics) {
     PositionedImage image = new PositionedImage(fileName, positionX, positionY);
     image.draw(graphics);
   }
-
 
 }
