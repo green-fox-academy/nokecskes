@@ -6,12 +6,10 @@ import java.awt.*;
 
 public class Board extends JComponent implements KeyListener {
 
-  int size;
   Area myGameArea;
   Hero myHero;
 
   public Board() {
-    size = 72;
     myGameArea = new Area();
     myHero = new Hero(ImageLoader.getInstance().HERO_DOWN);
 
@@ -26,7 +24,6 @@ public class Board extends JComponent implements KeyListener {
     //graphics.fillRect(testBoxX, testBoxY, 100, 100);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
-
 
     myGameArea.drawArea(graphics);
     myHero.draw(graphics);
@@ -72,14 +69,15 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
-      myHero.positionY -= size;
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      myHero.positionY += size;
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      myHero.positionX -= size;
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      myHero.positionX += size;
+    if (e.getKeyCode() == KeyEvent.VK_UP && (myHero.positionY - 1) >= 0 && myGameArea.boardTiles.get(myHero.positionY - 1).get(myHero.positionX) instanceof EmptyTile) {
+      myHero.positionY -= 1;
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && (myHero.positionY + 1) < 10 && myGameArea.boardTiles.get(myHero.positionY + 1).get(myHero.positionX) instanceof EmptyTile) {
+      myHero.positionY += 1;
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && (myHero.positionX - 1) >= 0 && myGameArea.boardTiles.get(myHero.positionY).get(myHero.positionX - 1) instanceof EmptyTile) {
+      myHero.positionX -= 1;
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && (myHero.positionX + 1) < 10
+            && myGameArea.boardTiles.get(myHero.positionY).get(myHero.positionX + 1) instanceof EmptyTile) {
+      myHero.positionX += 1;
     }
     // and redraw to have a new picture with the new coordinates
     //invalidate();

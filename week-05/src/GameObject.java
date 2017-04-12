@@ -17,7 +17,7 @@ public class GameObject {
   }
 
   public void draw(Graphics graphics) {
-    graphics.drawImage(image, positionX, positionY, null);
+    graphics.drawImage(image, positionX * TILE_WIDTH, positionY * TILE_HEIGHT, null);
   }
 
 }
