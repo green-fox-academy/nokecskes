@@ -1,23 +1,23 @@
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 public class GameObject {
 
   public static final int TILE_WIDTH = 72;
-  public static final int TILE_HEIGHT= 72;
+  public static final int TILE_HEIGHT = 72;
 
   int positionX;
   int positionY;
-  String fileName;
+  BufferedImage image;
 
-  public GameObject(String filename, int positionX, int positionY) {
+  public GameObject(BufferedImage image, int positionX, int positionY) {
     this.positionX = positionX;
     this.positionY = positionY;
-    this.fileName = filename;
+    this.image = image;
   }
 
   public void draw(Graphics graphics) {
-    PositionedImage image = new PositionedImage(fileName, positionX, positionY);
-    image.draw(graphics);
+    graphics.drawImage(image, positionX, positionY, null);
   }
 
 }

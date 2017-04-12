@@ -25,10 +25,10 @@ public class Area {
     for (int i = 0; i < 10; i++) {
       for (int j = 0; j < 10; j++) {
         if (area[i][j] == 0) {
-          EmptyTile tile = new EmptyTile(j * GameObject.TILE_WIDTH, i * GameObject.TILE_HEIGHT);
+          EmptyTile tile = new EmptyTile(ImageLoader.getInstance().FLOOR,j * GameObject.TILE_WIDTH, i * GameObject.TILE_HEIGHT);
           rowOfTiles.add(tile);
         } else if (area[i][j] == 1) {
-          NotEmptyTile tile = new NotEmptyTile(j * GameObject.TILE_WIDTH, i * GameObject.TILE_HEIGHT);
+          NotEmptyTile tile = new NotEmptyTile(ImageLoader.getInstance().WALL,j * GameObject.TILE_WIDTH, i * GameObject.TILE_HEIGHT);
           rowOfTiles.add(tile);
         }
       }

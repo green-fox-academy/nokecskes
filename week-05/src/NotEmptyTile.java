@@ -1,7 +1,8 @@
+import java.awt.image.BufferedImage;
 
 public class NotEmptyTile extends Tile {
 
-  public NotEmptyTile(int positionX, int positionY) {
-    super("assets/wall.png", positionX, positionY);
+  public NotEmptyTile(BufferedImage image, int positionX, int positionY) {
+    super(image, positionX, positionY);
   }
 }

@@ -1,11 +1,9 @@
-/**
- * Created by Connor on 2017.04.10..
- */
+import java.awt.image.BufferedImage;
+
 public class Hero extends Character {
 
-  public Hero() {
-    super("assets/hero-down.png", 0, 0);
-
+  public Hero(BufferedImage image) {
+    super(image, 0, 0);
   }
 
 }

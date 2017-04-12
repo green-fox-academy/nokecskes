@@ -13,7 +13,7 @@ public class Board extends JComponent implements KeyListener {
   public Board() {
     size = 72;
     myGameArea = new Area();
-    myHero = new Hero();
+    myHero = new Hero(ImageLoader.getInstance().HERO_DOWN);
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -26,6 +26,7 @@ public class Board extends JComponent implements KeyListener {
     //graphics.fillRect(testBoxX, testBoxY, 100, 100);
     // here you have a 720x720 canvas
     // you can create and draw an image using the class below e.g.
+
 
     myGameArea.drawArea(graphics);
     myHero.draw(graphics);
@@ -57,13 +58,13 @@ public class Board extends JComponent implements KeyListener {
   @Override
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_UP) {
-      myHero.fileName = "assets/hero-up.png";
+      myHero.image = ImageLoader.getInstance().HERO_UP;
     } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      myHero.fileName = "assets/hero-down.png";
+      myHero.image = ImageLoader.getInstance().HERO_DOWN;
     } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      myHero.fileName = "assets/hero-left.png";
+      myHero.image = ImageLoader.getInstance().HERO_LEFT;
     } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      myHero.fileName = "assets/hero-right.png";
+      myHero.image = ImageLoader.getInstance().HERO_RIGHT;
     }
   }
 

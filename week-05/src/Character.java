@@ -1,7 +1,8 @@
+import java.awt.image.BufferedImage;
 
 public class Character extends GameObject {
 
-  public Character(String filename, int positionX, int positionY) {
-    super(filename, positionX, positionY);
+  public Character(BufferedImage image, int positionX, int positionY) {
+    super(image, positionX, positionY);
   }
 }

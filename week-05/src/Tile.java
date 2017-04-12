@@ -1,8 +1,9 @@
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 public class Tile extends GameObject {
 
-  public Tile(String filename, int positionX, int positionY) {
-    super(filename, positionX, positionY);
+  public Tile(BufferedImage image, int positionX, int positionY) {
+    super(image, positionX, positionY);
   }
 }
