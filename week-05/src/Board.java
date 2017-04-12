@@ -1,5 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javafx.geometry.Pos;
 import javax.swing.*;
 import java.awt.*;
@@ -7,13 +8,20 @@ import java.awt.*;
 public class Board extends JComponent implements KeyListener {
 
   Area myGameArea;
+  ArrayList<Character> charactersOnBoard;
   Hero myHero;
   Monster bossMonster;
+  Skeleton skeleton1;
 
   public Board() {
     myGameArea = new Area();
+    charactersOnBoard = new ArrayList<>();
     myHero = new Hero(myGameArea);
+    charactersOnBoard.add(myHero);
     bossMonster = new Monster(myGameArea);
+    charactersOnBoard.add(bossMonster);
+    skeleton1 = new Skeleton(myGameArea);
+    charactersOnBoard.add(skeleton1);
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -28,9 +36,9 @@ public class Board extends JComponent implements KeyListener {
     // you can create and draw an image using the class below e.g.
 
     myGameArea.drawArea(graphics);
-    myHero.draw(graphics);
-    bossMonster.draw(graphics);
-
+    for (Character character : charactersOnBoard) {
+      character.draw(graphics);
+    }
   }
 
   public static void main(String[] args) {
