@@ -11,7 +11,7 @@ public class Board extends JComponent implements KeyListener {
 
   public Board() {
     myGameArea = new Area();
-    myHero = new Hero(ImageLoader.getInstance().HERO_DOWN);
+    myHero = new Hero(myGameArea);
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
@@ -54,30 +54,21 @@ public class Board extends JComponent implements KeyListener {
 
   @Override
   public void keyPressed(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_UP) {
-      myHero.image = ImageLoader.getInstance().HERO_UP;
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-      myHero.image = ImageLoader.getInstance().HERO_DOWN;
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-      myHero.image = ImageLoader.getInstance().HERO_LEFT;
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-      myHero.image = ImageLoader.getInstance().HERO_RIGHT;
-    }
+    
   }
 
   // But actually we can use just this one for our goals here
   @Override
   public void keyReleased(KeyEvent e) {
     // When the up or down keys hit, we change the position of our box
-    if (e.getKeyCode() == KeyEvent.VK_UP && (myHero.positionY - 1) >= 0 && myGameArea.boardTiles.get(myHero.positionY - 1).get(myHero.positionX) instanceof EmptyTile) {
-      myHero.positionY -= 1;
-    } else if (e.getKeyCode() == KeyEvent.VK_DOWN && (myHero.positionY + 1) < 10 && myGameArea.boardTiles.get(myHero.positionY + 1).get(myHero.positionX) instanceof EmptyTile) {
-      myHero.positionY += 1;
-    } else if (e.getKeyCode() == KeyEvent.VK_LEFT && (myHero.positionX - 1) >= 0 && myGameArea.boardTiles.get(myHero.positionY).get(myHero.positionX - 1) instanceof EmptyTile) {
-      myHero.positionX -= 1;
-    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT && (myHero.positionX + 1) < 10
-            && myGameArea.boardTiles.get(myHero.positionY).get(myHero.positionX + 1) instanceof EmptyTile) {
-      myHero.positionX += 1;
+    if (e.getKeyCode() == KeyEvent.VK_UP) {
+      myHero.heroUp();
+    } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+      myHero.heroDown();
+    } else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+      myHero.heroLeft();
+    } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+      myHero.heroRight();
     }
     // and redraw to have a new picture with the new coordinates
     //invalidate();
