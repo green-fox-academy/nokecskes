@@ -13,6 +13,11 @@ public class Hero extends Character {
   }
 
   @Override
+  public int generateLevel() {
+    return myCurrentArea.areaNumber;
+  }
+
+  @Override
   public void moveUp() {
     super.moveUp();
     image = ImageLoader.getInstance().HERO_UP;

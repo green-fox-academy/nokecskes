@@ -7,6 +7,7 @@ public class Area {
   ArrayList<Tile> boardTiles;
 
   public Area() {
+
     area = new int[][]{{0, 0, 0, 1, 0, 1, 0, 0, 0, 0},
             {0, 0, 0, 1, 0, 1, 0, 1, 1, 0},
             {0, 1, 1, 1, 0, 1, 0, 1, 1, 0},

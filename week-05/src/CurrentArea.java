@@ -7,8 +7,10 @@ public class CurrentArea extends GameLogic {
 
   Area myGameArea;
   ArrayList<Character> charactersOnBoard;
+  int areaNumber;
 
   public CurrentArea(Area myGameArea) {
+    areaNumber = 1;
     this.myGameArea = myGameArea;
   }
 
