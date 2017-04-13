@@ -8,20 +8,30 @@ import java.awt.*;
 public class Board extends JComponent implements KeyListener {
 
   Area myGameArea;
+  CurrentArea myCurrentArea;
   ArrayList<Character> charactersOnBoard;
   Hero myHero;
   Monster bossMonster;
   Skeleton skeleton1;
+  Skeleton skeleton2;
+  Skeleton skeleton3;
 
   public Board() {
     myGameArea = new Area();
+    myCurrentArea = new CurrentArea(myGameArea);
+
     charactersOnBoard = new ArrayList<>();
-    myHero = new Hero(myGameArea);
+    myHero = new Hero(myGameArea, myCurrentArea);
     charactersOnBoard.add(myHero);
-    bossMonster = new Monster(myGameArea);
+    bossMonster = new Monster(myGameArea, myCurrentArea, myCurrentArea.randomPositionGenerator(charactersOnBoard));
     charactersOnBoard.add(bossMonster);
-    skeleton1 = new Skeleton(myGameArea);
+    skeleton1 = new Skeleton(myGameArea, myCurrentArea, myCurrentArea.randomPositionGenerator(charactersOnBoard));
     charactersOnBoard.add(skeleton1);
+    skeleton2 = new Skeleton(myGameArea, myCurrentArea, myCurrentArea.randomPositionGenerator(charactersOnBoard));
+    charactersOnBoard.add(skeleton2);
+    skeleton3 = new Skeleton(myGameArea, myCurrentArea, myCurrentArea.randomPositionGenerator(charactersOnBoard));
+    charactersOnBoard.add(skeleton3);
+
 
     // set the size of your draw board
     setPreferredSize(new Dimension(720, 720));
