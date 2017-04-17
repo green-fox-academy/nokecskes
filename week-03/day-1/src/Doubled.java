@@ -14,25 +14,15 @@ public class Doubled {
     try {
       Path filePath = Paths.get("assets/duplicated-chars.txt");
       List<String> lines = Files.readAllLines(filePath);
-
-
-      for (int i = 0; i < lines.size() ; i++) {
+      for (int i = 0; i < lines.size(); i++) {
         String currentLine = lines.get(i);
-        for (int j = 0; j < currentLine.length(); j++) {
-          if((j % 2) == 0){
-            System.out.print(currentLine.charAt(j));
-          }
+        for (int j = 0; j < currentLine.length(); j += 2) {
+          System.out.print(currentLine.charAt(j));
         }
         System.out.println();
       }
-
-
     } catch (Exception e) {
       System.out.println("Uh-oh, an error happend: " + e.getClass());
     }
-
-
-
   }
-
 }
