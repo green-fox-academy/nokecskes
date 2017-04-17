@@ -9,18 +9,32 @@ public class Animal {
 
   public Animal(String name) {
     this.name = name;
+    age = 0;
+    gender = "unknown";
   }
 
   public String getName() {
     return name;
   }
 
-  public String greet() {
-    return "hello!";
+  public void setAge(int age) {
+    this.age = age;
+  }
+
+  public int getAge() {
+    return age;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public String getGender() {
+    return gender;
   }
 
   public String wantChild() {
-    return "unknown";
+    return "want a child from an egg!";
   }
 
 }

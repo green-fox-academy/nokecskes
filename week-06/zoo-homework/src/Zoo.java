@@ -2,9 +2,6 @@
  * Created by Connor on 2017.04.17..
  */
 
-import main.java.animals.*;
-
-
 public class Zoo {
 
   public static void main(String[] args) {
@@ -14,10 +11,11 @@ public class Zoo {
     Bird bird = new Bird("Parrot");
 
     System.out.println("Who want a baby?");
+    System.out.println(reptile.greet());
     System.out.println(reptile.getName() + ", " + reptile.wantChild());
+    System.out.println(mammal.greet());
     System.out.println(mammal.getName() + ", " + mammal.wantChild());
+    System.out.println(bird.greet());
     System.out.println(bird.getName() + ", " + bird.wantChild());
   }
-
-
 }
