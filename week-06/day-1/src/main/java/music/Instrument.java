@@ -8,6 +8,7 @@ public abstract class Instrument {
   it should provide a play() method.*/
 
   String name;
+  String sound;
 
   public abstract void play();
 
