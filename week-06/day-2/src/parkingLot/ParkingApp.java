@@ -5,7 +5,9 @@ package parkingLot;
  */
 public class ParkingApp {
 
-  ParkingLot parkingLot = new ParkingLot(10);
-
-
+  public static void main(String[] args) {
+    ParkingLot parkingLot = new ParkingLot(10);
+    parkingLot.countAndPrintTypes();
+    parkingLot.countAndPrintColors();
+  }
 }
