@@ -1,6 +1,7 @@
 package parkingLot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -31,4 +32,8 @@ public class Car {
     color = colors[randomColor];
   }
 
+  @Override
+  public String toString() {
+    return type + " " + color;
+  }
 }

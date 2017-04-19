@@ -70,5 +70,26 @@ public class ParkingLot {
     }
   }
 
-
+  public void getMostFrequentCar() {
+    HashMap<String, Integer> carFrequency = new HashMap<>();
+    int max = 0;
+    for (Car car : parkingLot) {
+      if (carFrequency.get(car.toString()) != null) {
+        carFrequency.put(car.toString(), carFrequency.get(car.toString()) + 1);
+      } else {
+        carFrequency.put(car.toString(), 1);
+      }
+      if (max < carFrequency.get(car.toString())) {
+        max = carFrequency.get(car.toString());
+      }
+    }
+    for (String key : carFrequency.keySet()) {
+      if (carFrequency.get(key) == max) {
+        System.out.println(key);
+      }
+    }
+  }
 }
+
+
+

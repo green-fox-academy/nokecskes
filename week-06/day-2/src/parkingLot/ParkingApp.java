@@ -6,8 +6,9 @@ package parkingLot;
 public class ParkingApp {
 
   public static void main(String[] args) {
-    ParkingLot parkingLot = new ParkingLot(256);
+    ParkingLot parkingLot = new ParkingLot(10);
     parkingLot.countAndPrintTypes();
     parkingLot.countAndPrintColors();
+    parkingLot.getMostFrequentCar();
   }
 }
