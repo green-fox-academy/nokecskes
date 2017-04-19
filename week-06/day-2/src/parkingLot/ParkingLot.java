@@ -11,12 +11,12 @@ public class ParkingLot {
 
   public ParkingLot(int numberOfCars) {
     for (int i = 0; i < numberOfCars; i++) {
-      addNewCar();
+      addNewRandomCar();
     }
   }
 
-  public void addNewCar() {
-    Car car = new Car(randomNumberGenerator(0, 6), randomNumberGenerator(0, 6));
+  public void addNewRandomCar() {
+    Car car = new Car(randomNumberGenerator(0, Type.values().length), randomNumberGenerator(0, Color.values().length));
     parkingLot.add(car);
   }
 

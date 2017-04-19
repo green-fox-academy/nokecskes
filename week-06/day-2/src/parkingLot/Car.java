@@ -1,5 +1,8 @@
 package parkingLot;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by Connor on 2017.04.19..
  */
@@ -7,6 +10,8 @@ public class Car {
 
   Type type;
   Color color;
+  Type[] types = Type.values();
+  Color[] colors = Color.values();
 
   public Car(Type type, Color color) {
     this.type = type;
@@ -19,35 +24,11 @@ public class Car {
   }
 
   public void setRandomType(int randomType) {
-    if (randomType == 0) {
-      type = Type.SKODA;
-    } else if (randomType == 1) {
-      type = Type.TRABANT;
-    } else if (randomType == 2) {
-      type = Type.SUZUKI;
-    } else if (randomType == 3) {
-      type = Type.LADA;
-    } else if (randomType == 4) {
-      type = Type.AUDI;
-    } else if (randomType == 5) {
-      type = Type.MERCEDES;
-    }
+    type = types[randomType];
   }
 
   public void setRandomColor(int randomColor) {
-    if (randomColor == 0) {
-      color = Color.BLUE;
-    } else if (randomColor == 1) {
-      color = Color.RED;
-    } else if (randomColor == 2) {
-      color = Color.GREEN;
-    } else if (randomColor == 3) {
-      color = Color.BLACK;
-    } else if (randomColor == 4) {
-      color = Color.WHITE;
-    } else if (randomColor == 5) {
-      color = Color.YELLOW;
-    }
+    color = colors[randomColor];
   }
 
 }
