@@ -50,7 +50,7 @@ public class BirthdayWithLocalDate implements BirthdayCalculator<LocalDate> {
     if (isAnniversaryToday(date)) {
       daysToNextBirthday = 0;
     } else if(today.isBefore(birthdayThisYear)) {
-      daysToNextBirthday = birthdayThisYear.getDayOfYear() - today.getDayOfYear() + 1;
+      daysToNextBirthday = birthdayThisYear.getDayOfYear() - today.getDayOfYear();
     } else {
       LocalDate nextBirthday = birthdayThisYear.plusYears(1);
       daysToNextBirthday = ((today.lengthOfYear() - today.getDayOfYear()) + nextBirthday.getDayOfYear());
