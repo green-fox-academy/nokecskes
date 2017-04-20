@@ -19,7 +19,6 @@ public class Lotto {
     // Create a method that find the 5 most common lotto numbers assets/lotto.csv
 
     try {
-      // Reads the content from `lorem_ipsum.txt` in the `assets` folder line by line to a String List
       Path filePath = Paths.get("assets/otos.csv");
       List<String> lines = Files.readAllLines(filePath);
 

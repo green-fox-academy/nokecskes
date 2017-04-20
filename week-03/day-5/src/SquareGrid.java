@@ -14,7 +14,7 @@ public class SquareGrid {
   }
 
   public static void squareFractal(int startX, int startY, int squareSize, Graphics graphics) {
-    if(squareSize < 10) {
+    if(squareSize < 5) {
       return;
     }
 

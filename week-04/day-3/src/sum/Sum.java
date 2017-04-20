@@ -7,6 +7,9 @@ import java.util.List;
  * Created by Connor on 2017.04.05..
  */
 public class Sum {
+  /*Create a sum method in your class which has an ArrayList of Integers as parameter
+        It should return the sum of the elements in the list
+  */
 
   public int sumElts(List<Integer> eltsToSum) {
     int sum = 0;
@@ -28,8 +31,4 @@ public class Sum {
     System.out.println(sumOfElts);
   }
 }
-/*
 
-  Create a sum method in your class which has an ArrayList of Integers as parameter
-        It should return the sum of the elements in the list
-*/
