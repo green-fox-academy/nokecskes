@@ -4,5 +4,5 @@ out
 *.xml
 .DS_Store
 .gradle
-/build/
+build/
 .properties
