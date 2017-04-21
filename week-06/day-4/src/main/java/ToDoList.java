@@ -1,7 +1,3 @@
-import com.sun.org.apache.xpath.internal.Arg;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,12 +10,22 @@ import java.util.List;
 
 public class ToDoList {
 
-  String[] arguments;
-  Path myListPath;
-  List<String> lines;
+  private String[] arguments;
+  private Path myListPath;
+  private List<String> lines;
+  private ArrayList<ToDo> toDoList;
 
   public ToDoList(String[] arguments) {
     this.arguments = arguments;
+    toDoList = new ArrayList<>();
+    lines = new ArrayList<>();
+    readInToDoList();
+    fillToDoList();
+    handleToDoList();
+  }
+
+  public void readInToDoList() {
+    lines.clear();
     try {
       myListPath = Paths.get("mylist.txt");
       lines = Files.readAllLines(myListPath);
@@ -28,85 +34,95 @@ public class ToDoList {
     }
   }
 
-  public void writeFile() {
-    try {
-      Files.write(myListPath, lines);
-    } catch (Exception e) {
-      System.out.println("error");
+  public void fillToDoList() {
+    for (String line : lines) {
+      addToList(line);
     }
   }
 
-  public void handleList() {
+  public void addToList(String taskToAdd) {
+    ToDo toDo = new ToDo(taskToAdd);
+    toDoList.add(toDo);
+  }
+
+  public void handleToDoList() {
     if (arguments[0].equals("-l")) {
       printTasks();
     } else if (arguments[0].equals("-a")) {
-      append();
+      addTask();
     } else if (arguments[0].equals("-r")) {
       removeTask();
-    } else if(arguments[0].equals("-c")) {
+    } else if (arguments[0].equals("-c")) {
       checkTask();
     }
   }
 
   public void printTasks() {
-    if (lines.size() == 0) {
+    if (toDoList.size() == 0) {
       System.out.println("No todos for today! :)");
     } else {
-      for (int i = 0; i < lines.size(); i++) {
-        System.out.println((i + 1) + " - " + lines.get(i));
+      for (int i = 0; i < toDoList.size(); i++) {
+        System.out.println((i + 1) + " - " + toDoList.get(i).getTask());
       }
     }
   }
 
-  public void append() {
+  public void addTask() {
     if (arguments.length == 1) {
       System.out.println("Unable to add: no task provided");
     } else {
-      arguments[1] = "[ ] " + arguments[1];
-      lines.add(arguments[1]);
+      String task = "[ ] " + arguments[1];
+      addToList(task);
     }
     writeFile();
   }
 
   public void removeTask() {
-    int toRemove = checkIndex("remove");
-    if( toRemove >= 0) {
-      lines.remove(toRemove);
+    if (validIndex("remove")) {
+      toDoList.remove(Integer.parseInt(arguments[1]) - 1);
       writeFile();
     }
   }
 
   public void checkTask() {
-    int toCheck = checkIndex("check");
-    if (toCheck >= 0) {
-      String taskToCheck = lines.get(toCheck).substring(3);
-      lines.remove(toCheck);
-      lines.add(toCheck, "[X]" + taskToCheck);
+    if (validIndex("check")) {
+      toDoList.get(Integer.parseInt(arguments[1]) - 1).setToChecked();
       writeFile();
     }
   }
 
-  public int checkIndex (String task) {
-    int toHandle= 0;
+  public boolean validIndex(String task) {
+    int index = 0;
 
     if (arguments.length == 1) {
       System.out.println("Unable to " + task + ": no index provided");
-      return -1;
+      return false;
     }
 
     try {
-      toHandle = Integer.parseInt(arguments[1]) - 1;
+      index = Integer.parseInt(arguments[1]) - 1;
     } catch (NumberFormatException e) {
       System.out.println("Unable to " + task + ": index is not a number");
-      return -1;
+      return false;
     }
 
-    if (toHandle > lines.size()) {
+    if (index > lines.size() || index < 0) {
       System.out.println("Unable to " + task + ": index is out of bound");
-      return -1;
+      return false;
     }
+    return true;
+  }
 
-    return toHandle;
+  public void writeFile() {
+    try {
+      lines.clear();
+      for (ToDo toDo : toDoList) {
+        lines.add(toDo.getTask());
+      }
+      Files.write(myListPath, lines);
+    } catch (Exception e) {
+      System.out.println("error");
+    }
   }
 
 

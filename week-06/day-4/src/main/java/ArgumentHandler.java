@@ -15,6 +15,19 @@ public class ArgumentHandler {
     this.arguments = arguments;
   }
 
+  public boolean validArgument() {
+    boolean validArgument = false;
+    if (noArgument()) {
+      printUsage();
+    } else if (!existingArgument() || !validLength()) {
+      System.out.println("Unsupported argument");
+      printUsage();
+    } else {
+      validArgument = true;
+    }
+    return validArgument;
+  }
+
   public boolean noArgument() {
     if (arguments.length == 0) {
       return true;
@@ -29,7 +42,7 @@ public class ArgumentHandler {
     return false;
   }
 
-  public boolean validArg() {
+  public boolean existingArgument() {
     if (arguments[0].equals("-l") || arguments[0].equals("-a") || arguments[0].equals("-r")
             || arguments[0].equals("-c")) {
       return true;
