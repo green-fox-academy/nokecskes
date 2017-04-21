@@ -1,0 +1,7 @@
+[ ] Walk the dog
+[ ] Buy milk
+[ ] Do homework
+[X] Feed the hippo
+[X] Count sheep
+[X] Talk more to my hippo, Fiona
+[ ] Gradle my ToDo App
