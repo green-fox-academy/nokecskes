@@ -3,6 +3,7 @@ out
 *.iml
 *.xml
 .DS_Store
+*.class
 .gradle
 build/
 *.properties
