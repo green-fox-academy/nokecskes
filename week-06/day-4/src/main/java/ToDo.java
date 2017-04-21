@@ -10,12 +10,18 @@ public class ToDo {
 
   public ToDo(String task) {
     this.task = task;
-    if (task.contains("[X]")) {
-      checked = true;
-    } else {
+    checked = false;
+  }
+
+  public ToDo(String[] taskLine) {
+    task = taskLine[0];
+    if(taskLine[1].equals("0")) {
       checked = false;
+    } else {
+      checked = true;
     }
   }
+
 
   public String getTask() {
     return task;

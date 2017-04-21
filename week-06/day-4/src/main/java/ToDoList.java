@@ -1,6 +1,7 @@
+import com.opencsv.CSVReader;
+import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,15 @@ public class ToDoList {
 
   private String[] arguments;
   private Path myListPath;
-  private List<String> lines;
+  private List<String[]> toDoLine;
   private ArrayList<ToDo> toDoList;
+
+  private List<String> lines;
+
 
   public ToDoList(String[] arguments) {
     this.arguments = arguments;
+    toDoLine = new ArrayList<>();
     toDoList = new ArrayList<>();
     lines = new ArrayList<>();
     readInToDoList();
@@ -27,16 +32,25 @@ public class ToDoList {
   public void readInToDoList() {
     lines.clear();
     try {
+      CSVReader reader = new CSVReader(new FileReader("myList.csv"), ';');
+      toDoLine = reader.readAll();
+    } catch (Exception e) {
+      System.out.println("Sorry, couldn't open the file.");
+    }
+
+
+    /*try {
       myListPath = Paths.get("mylist.txt");
       lines = Files.readAllLines(myListPath);
     } catch (Exception e) {
       System.out.println("error");
-    }
+    }*/
   }
 
   public void fillToDoList() {
-    for (String line : lines) {
-      addToList(line);
+    for (String[] line : toDoLine) {
+      ToDo toDo = new ToDo(line);
+      toDoList.add(toDo);
     }
   }
 
@@ -62,7 +76,13 @@ public class ToDoList {
       System.out.println("No todos for today! :)");
     } else {
       for (int i = 0; i < toDoList.size(); i++) {
-        System.out.println((i + 1) + " - " + toDoList.get(i).getTask());
+        String checkStatus;
+        if (toDoList.get(i).isChecked()) {
+          checkStatus = "[X] ";
+        } else {
+          checkStatus = "[ ] ";
+        }
+        System.out.print((i + 1) + " - " + checkStatus + toDoList.get(i).getTask());
       }
     }
   }

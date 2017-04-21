@@ -1,4 +1,3 @@
-import com.sun.org.apache.xpath.internal.Arg;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -52,7 +51,7 @@ public class ArgumentHandler {
 
   public void printUsage() {
     try {
-      Path usagePath = Paths.get("ToDoUsage.txt");
+      Path usagePath = Paths.get("toDoUsage.txt");
       List<String> usageLines = Files.readAllLines(usagePath);
       for (String usageLine : usageLines) {
         System.out.println(usageLine);
