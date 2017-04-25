@@ -2,7 +2,9 @@ import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -32,7 +34,7 @@ public class ToDoList {
   public void readInToDoList() {
     lines.clear();
     try {
-      CSVReader reader = new CSVReader(new FileReader("myList.csv"), ';');
+      CSVReader reader = new CSVReader(new FileReader("src/main/java/myList.csv"), ';');
       toDoLine = reader.readAll();
     } catch (Exception e) {
       System.out.println("Sorry, couldn't open the file.");
