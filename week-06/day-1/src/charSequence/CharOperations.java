@@ -13,7 +13,7 @@ public class CharOperations implements CharSequence {
 
   @Override
   public char charAt(int index) {
-    char reversedCharAt = stringToTransform.charAt(stringToTransform.length() - index - 1);
+    char reversedCharAt = stringToTransform.charAt(stringToTransform.length() - 1 - index);
     return reversedCharAt;
   }
 
@@ -24,12 +24,21 @@ public class CharOperations implements CharSequence {
 
   @Override
   public CharSequence subSequence(int start, int end) {
-
-    return null;
+    start = stringToTransform.length() - 1 - start;
+    end = stringToTransform.length() - 1 - end;
+    String reversedSubSequence = "";
+    for (int i = start; i > end - 1 ; i--) {
+      reversedSubSequence += stringToTransform.charAt(i);
+    }
+    return reversedSubSequence;
   }
 
   @Override
   public String toString() {
-    return super.toString();
+    String reversedString = "";
+    for (int i = stringToTransform.length(); i > 0 ; i--) {
+      reversedString += stringToTransform.charAt(i - 1);
+    }
+    return reversedString;
   }
 }
