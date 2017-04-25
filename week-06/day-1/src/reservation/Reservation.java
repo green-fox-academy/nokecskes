@@ -19,19 +19,19 @@ public class Reservation implements Reservationy {
     return code;
   }
 
-  public int[] getCodePattern (int codeLength) {
+  public int[] getCodePattern(int codeLength) {
     int[] codePattern = new int[8];
-    for (int i = 0; i < codeLength ; i++) {
+    for (int i = 0; i < codeLength; i++) {
       codePattern[i] = randomNumberGenerator(0, 1);
     }
     return codePattern;
   }
 
-  public String getRandomCode (int[] codePattern) {
+  public String getRandomCode(int[] codePattern) {
     String randomCode = "";
     int min = 0;
     int max = 0;
-    for (int i = 0; i < codePattern.length ; i++) {
+    for (int i = 0; i < codePattern.length; i++) {
       if (codePattern[i] == 0) {
         min = 48;
         max = 57;
@@ -44,8 +44,8 @@ public class Reservation implements Reservationy {
     return randomCode;
   }
 
-  public int randomNumberGenerator (int min, int max) {
-    int random = min + (int)(Math.random() * (max - min + 1));
+  public int randomNumberGenerator(int min, int max) {
+    int random = min + (int) (Math.random() * (max - min + 1));
     return random;
   }
 

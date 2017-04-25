@@ -7,7 +7,7 @@ public class CharOperations implements CharSequence {
 
   String stringToTransform;
 
-  public CharOperations (String stringToTransform) {
+  public CharOperations(String stringToTransform) {
     this.stringToTransform = stringToTransform;
   }
 
@@ -27,7 +27,7 @@ public class CharOperations implements CharSequence {
     start = stringToTransform.length() - 1 - start;
     end = stringToTransform.length() - 1 - end;
     String reversedSubSequence = "";
-    for (int i = start; i > end - 1 ; i--) {
+    for (int i = start; i > end - 1; i--) {
       reversedSubSequence += stringToTransform.charAt(i);
     }
     return reversedSubSequence;
@@ -36,7 +36,7 @@ public class CharOperations implements CharSequence {
   @Override
   public String toString() {
     String reversedString = "";
-    for (int i = stringToTransform.length(); i > 0 ; i--) {
+    for (int i = stringToTransform.length(); i > 0; i--) {
       reversedString += stringToTransform.charAt(i - 1);
     }
     return reversedString;
