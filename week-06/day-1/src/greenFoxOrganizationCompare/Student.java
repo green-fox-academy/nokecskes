@@ -17,7 +17,7 @@ The Student class has the following constructors:
         Student(): sets name to Jane Doe, age to 30, gender to female, previousOrganization to The School of Life, skippedDays to 0
  */
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
 
   String previousOrganization;
   int skippedDays;
@@ -48,5 +48,13 @@ public class Student extends Person {
     skippedDays += numberOfDays;
   }
 
+  public int getSkippedDays() {
+    return skippedDays;
+  }
 
+  @Override
+  public int compareTo(Student compareTo) {
+    int compareSkippedDays = compareTo.getSkippedDays();
+    return skippedDays - compareSkippedDays;
+  }
 }

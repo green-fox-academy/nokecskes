@@ -1,5 +1,8 @@
 package greenFoxOrganizationCompare;
 
+import java.util.Comparator;
+import main.java.music.StringedInstrument;
+
 /**
  * Created by Connor on 2017.04.04..
  */
@@ -34,9 +37,24 @@ public class Mentor extends Person {
     System.out.println("My goal is: Educate brilliant junior software developers.");
   }
 
+  public String getLevel() {
+    return level;
+  }
+
   public void introduce() {
     System.out.printf("Hi, I'm %s, a %d year old %s %s mentor.", name, age, gender, level);
   }
 
+  public static Comparator<Mentor> MentorLevelComparator = new Comparator<Mentor>() {
+
+    public int compare(Mentor mentor1, Mentor mentor2) {
+
+      String mentorLevel1 = mentor1.getLevel().toUpperCase();
+      String mentorLevel2 = mentor2.getLevel().toUpperCase();
+
+      //ascending order
+      return mentorLevel1.compareTo(mentorLevel2);
+    }
+  };
 
 }

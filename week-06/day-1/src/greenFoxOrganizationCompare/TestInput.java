@@ -1,6 +1,7 @@
 package greenFoxOrganizationCompare;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Connor on 2017.04.04..
@@ -50,5 +51,6 @@ public class TestInput {
     badass.addMentor(mentor);
     badass.addMentor(gandhi);
     badass.info();
+
   }
 }
