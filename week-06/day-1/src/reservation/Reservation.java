@@ -5,21 +5,32 @@ package reservation;
  */
 public class Reservation implements Reservationy {
 
-  @Override
-  public String getDowBooking() {
+  private String dowBooking;
+  private String codeBooking;
+
+  public Reservation () {
+    dowBooking = generateDowBooking();
+    codeBooking = generateCodeBooking();
+  }
+
+  public String generateDowBooking() {
     String[] daysOfWeek = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
     return daysOfWeek[randomNumberGenerator(0, 6)];
   }
 
   @Override
-  public String getCodeBooking() {
+  public String getDowBooking() {
+    return dowBooking;
+  }
+
+  public String generateCodeBooking() {
     int codeLength = 8;
-    int[] codePattern = getCodePattern(8);
-    String code = getRandomCode(codePattern);
+    int[] codePattern = generateCodePattern(8);
+    String code = generateRandomCode(codePattern);
     return code;
   }
 
-  public int[] getCodePattern(int codeLength) {
+  public int[] generateCodePattern(int codeLength) {
     int[] codePattern = new int[8];
     for (int i = 0; i < codeLength; i++) {
       codePattern[i] = randomNumberGenerator(0, 1);
@@ -27,7 +38,7 @@ public class Reservation implements Reservationy {
     return codePattern;
   }
 
-  public String getRandomCode(int[] codePattern) {
+  public String generateRandomCode(int[] codePattern) {
     String randomCode = "";
     int min = 0;
     int max = 0;
@@ -44,6 +55,11 @@ public class Reservation implements Reservationy {
     return randomCode;
   }
 
+  @Override
+  public String getCodeBooking() {
+   return codeBooking;
+  }
+
   public int randomNumberGenerator(int min, int max) {
     int random = min + (int) (Math.random() * (max - min + 1));
     return random;
@@ -51,7 +67,7 @@ public class Reservation implements Reservationy {
 
   @Override
   public String toString() {
-    String booking = String.format("Booking# %s for %s", getCodeBooking(), getDowBooking());
+    String booking = String.format("Booking# %s for %s", codeBooking, dowBooking);
     return booking;
   }
 }
