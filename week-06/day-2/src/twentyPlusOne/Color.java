@@ -14,14 +14,14 @@ public enum Color {
     this.colorValue = colorValue;
   }
 
-  public Color getColorOfValue(int value) {
-    Color colorToReturn = new Color();
+  /*public Color getColorOfValue(int value) {
+    Color colorToReturn = new Color(2);
     for (Color color : values()) {
       if (color.colorValue == value) {
         colorToReturn = color;
       }
     }
     return colorToReturn;
-  }
+  }*/
 
 }

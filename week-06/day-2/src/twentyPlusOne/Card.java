@@ -15,11 +15,11 @@ public class Card {
     this.suit = suit;
   }
 
-  public Card (int randomColor, int randomRank, int randomSuit) {
+  /*public Card (int randomColor, int randomRank, int randomSuit) {
     this.color = randomColor;
     this.rank = randomRank;
     this.suit = randomSuit;
-  }
+  }*/
 
 
 

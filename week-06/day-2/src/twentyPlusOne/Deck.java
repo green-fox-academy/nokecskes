@@ -13,16 +13,16 @@ public class Deck {
 
   public Deck() {
     deck = new ArrayList<>();
-    fillDeck();
+//    fillDeck();
   }
-
+/*
   public void fillDeck() {
     for (int i = 0; i < 52 ; i++) {
       Card card =
 
     }
 
-  }
+  }*/
 
   public void shuffleDeck(){
     Collections.shuffle(deck);
