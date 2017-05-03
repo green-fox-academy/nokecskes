@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <title>Lion King Bank Account</title>
+  <title>Thymeleaf Exercise #</title>
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <meta charset="utf-8" />
 </head>
 <body>
 <ul th:object="${account}">
   <li th:text = "'Name: ' + *{name}"/>
-  <li th:text = "'Balance: ' + *{balance}"/>
+  <li th:text = "'Balance: ' + *{#numbers.formatDecimal(balance, 3, 2)}"/>
   <li th:text = "'Animal type: ' + *{animalType}"/>
 </ul>
 </body>
 </html>
+
+
+
 
 
 
