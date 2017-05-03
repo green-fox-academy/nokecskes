@@ -18,6 +18,7 @@
     <td th:text="${account.name}"></td>
     <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)} + ' ' + ${account.currency}"></td>
     <td th:text="${account.animalType}"></td>
+    <td th:text="${account.isGoodGuy()} ? 'Good one!' : 'Bad guy.'"></td>
   </tr>
 </table>
 </body>

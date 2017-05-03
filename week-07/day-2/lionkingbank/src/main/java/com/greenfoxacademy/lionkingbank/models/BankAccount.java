@@ -14,6 +14,7 @@ public class BankAccount {
   private int balance;
   private String animalType;
   private String currency;
-  boolean King;
+  boolean king;
+  boolean goodGuy;
 
 }
