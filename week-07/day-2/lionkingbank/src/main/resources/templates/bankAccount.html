@@ -8,7 +8,7 @@
 <body>
 <ul th:object="${account}">
   <li th:text = "'Name: ' + *{name}"/>
-  <li th:text = "'Balance: ' + *{#numbers.formatDecimal(balance, 3, 2)}"/>
+  <li th:text = "'Balance: ' + *{#numbers.formatDecimal(balance, 3, 2)} + ' ' + *{currency}"/>
   <li th:text = "'Animal type: ' + *{animalType}"/>
 </ul>
 </body>

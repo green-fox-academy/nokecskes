@@ -13,7 +13,7 @@ public class Exercise1Controller {
 
   @RequestMapping("/web/Exercise1")
   public String addAccount(Model model) {
-    BankAccount simbaAccount = new BankAccount("Simba", 2000, "lion");
+    BankAccount simbaAccount = new BankAccount("Simba", 2000, "lion", "Zebra");
     model.addAttribute("account", simbaAccount);
     return "bankAccount";
   }
