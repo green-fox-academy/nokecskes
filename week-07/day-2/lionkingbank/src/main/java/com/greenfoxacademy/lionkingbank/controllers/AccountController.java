@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AccountController {
 
-  BankAccount simbaAccount = new BankAccount("Simba", 2000, "lion", "Zebra");
-  BankAccount timonAccount = new BankAccount("Timon", 100, "meerkat", "Leaf");
-  BankAccount zordonAccount = new BankAccount("Zordon", 0, "lion", "Zebra");
-  BankAccount zazuAccount = new BankAccount("Zazu", 8000, "bird", "Bug");
-  BankAccount pumbaAccount = new BankAccount("Pumba", 1500, "tusker", "Bug");
+  BankAccount simbaAccount = new BankAccount("Simba", 2000, "lion", "Zebra", false);
+  BankAccount timonAccount = new BankAccount("Timon", 100, "meerkat", "Leaf", true);
+  BankAccount zordonAccount = new BankAccount("Zordon", 0, "lion", "Zebra", false);
+  BankAccount zazuAccount = new BankAccount("Zazu", 8000, "bird", "Bug", false);
+  BankAccount pumbaAccount = new BankAccount("Pumba", 1500, "tusker", "Bug", true);
 
   @RequestMapping("/web/Account")
   public String addAccount(Model model) {

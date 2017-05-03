@@ -13,7 +13,7 @@
     <th>Balance</th>
     <th>Animal type</th>
   </tr>
-  <tr th:each="account : ${accounts}">
+  <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color:pink'">
     <td th:text="${accountStat.index + 1}"></td>
     <td th:text="${account.name}"></td>
     <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)} + ' ' + ${account.currency}"></td>
