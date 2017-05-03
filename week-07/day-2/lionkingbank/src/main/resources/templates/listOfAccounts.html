@@ -8,11 +8,13 @@
 <body>
 <table>
   <tr>
+    <th>Index</th>
     <th>Name</th>
     <th>Balance</th>
     <th>Animal type</th>
   </tr>
   <tr th:each="account : ${accounts}">
+    <td th:text="${accountStat.index + 1}"></td>
     <td th:text="${account.name}"></td>
     <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)} + ' ' + ${account.currency}"></td>
     <td th:text="${account.animalType}"></td>
@@ -22,3 +24,7 @@
 </html>
 
 
+<!--
+
+In an iteration if you use your Object + Stat(e.g. ${bankaccountStat.}) there will be various new methods available for you
+Find the one which helps you to display the index of the elements in this iteration-->
