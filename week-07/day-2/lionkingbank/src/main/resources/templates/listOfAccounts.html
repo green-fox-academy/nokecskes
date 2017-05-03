@@ -13,12 +13,14 @@
     <th>Balance</th>
     <th>Animal type</th>
   </tr>
-  <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color:pink'">
+  <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color:pink'"
+      th:switch="${account.isGoodGuy()}">
     <td th:text="${accountStat.index + 1}"></td>
     <td th:text="${account.name}"></td>
     <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)} + ' ' + ${account.currency}"></td>
     <td th:text="${account.animalType}"></td>
-    <td th:text="${account.isGoodGuy()} ? 'Good one!' : 'Bad guy.'"></td>
+    <td th:case="true">Good one!</td>
+    <td th:case="false">Bad guy.</td>
   </tr>
 </table>
 </body>
