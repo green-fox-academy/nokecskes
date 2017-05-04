@@ -1,11 +1,13 @@
 package com.greenfoxacademy.lionkingbank.controllers;
 
 import com.greenfoxacademy.lionkingbank.models.BankAccount;
+import com.greenfoxacademy.lionkingbank.models.BankAccountList;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Created by Connor on 2017.05.03..
@@ -13,27 +15,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AccountController {
 
-  BankAccount simbaAccount = new BankAccount("Simba", 2000, "lion", "Zebra", false, true);
-  BankAccount timonAccount = new BankAccount("Timon", 100, "meerkat", "Leaf", true, true);
-  BankAccount zordonAccount = new BankAccount("Zordon", 0, "lion", "Zebra", false, false);
-  BankAccount zazuAccount = new BankAccount("Zazu", 8000, "bird", "Bug", false, true);
-  BankAccount pumbaAccount = new BankAccount("Pumba", 1500, "tusker", "Bug", true, true);
+  BankAccountList bankAccountList = new BankAccountList();
 
   @RequestMapping("/web/Account")
   public String addAccount(Model model) {
-    model.addAttribute("account", simbaAccount);
+    model.addAttribute("account", bankAccountList.getListOfAccounts().get(0));
     return "bankAccount";
   }
 
   @RequestMapping("/web/ListOfAccounts")
   public String createListOfAccounts (Model model) {
-    ArrayList<BankAccount> listOfAccounts = new ArrayList<>();
-    listOfAccounts.add(simbaAccount);
-    listOfAccounts.add(timonAccount);
-    listOfAccounts.add(zordonAccount);
-    listOfAccounts.add(zazuAccount);
-    listOfAccounts.add(pumbaAccount);
-    model.addAttribute("accounts", listOfAccounts);
+    model.addAttribute("accounts", bankAccountList.getListOfAccounts());
     return "listOfAccounts";
   }
 
@@ -43,6 +35,19 @@ public class AccountController {
     model.addAttribute("text", text);
     return "enjoy";
   }
+
+  @RequestMapping("/web/ListOfAccounts/increaseBalance")
+  public String hit(int index) {
+    bankAccountList.getListOfAccounts().get(index).increaseBalance();
+    return "redirect:/web/ListOfAccounts";
+  }
+
+  /*Not working solution, still thinking about it :)
+    public String hit (@RequestParam int id) {
+    int newBalance = bankAccountList.getListOfAccounts().get(id).getBalance() + 10;
+    bankAccountList.getListOfAccounts().get(id).setBalance(newBalance);
+    return "redirect:/web/ListOfAccounts";
+  }*/
 
 
 }
