@@ -18,3 +18,6 @@ public class Trick {
     this.learned = false;
   }
 }
+
+
+

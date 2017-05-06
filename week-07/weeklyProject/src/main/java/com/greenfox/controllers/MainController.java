@@ -1,11 +1,10 @@
 package com.greenfox.controllers;
 
 import com.greenfox.models.Hippo;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -19,9 +18,9 @@ public class MainController {
   @Autowired
   ModelAndView m;
 
+
   @RequestMapping("/")
   public ModelAndView index() {
-    fiona.getTrickList().get(3).setLearned(true);
     m.setViewName("index");
     m.addObject("animal", fiona);
     return m;
@@ -35,8 +34,15 @@ public class MainController {
 
   @RequestMapping("/trickCenter")
   public ModelAndView trickCenter() {
+    m.addObject("animal", fiona);
     m.setViewName("trickCenter");
     return m;
+  }
+
+  @RequestMapping("/learnNewTrick")
+  public String learnNewTrick(@RequestParam int index) {
+    fiona.learnTrick(index);
+    return "redirect:/";
   }
 
 

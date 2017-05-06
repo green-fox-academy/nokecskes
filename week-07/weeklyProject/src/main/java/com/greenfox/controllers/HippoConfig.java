@@ -25,6 +25,4 @@ public class HippoConfig {
   public Trick getTrick(String trick) {
     return new Trick(trick);
   }
-
-
 }

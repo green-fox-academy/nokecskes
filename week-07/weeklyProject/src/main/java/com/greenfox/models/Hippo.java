@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by Connor on 2017.05.04..
  */
-@Getter
+
 @Setter
+@Getter
 public class Hippo {
 
   private String name;
@@ -24,6 +25,16 @@ public class Hippo {
     this.name = "Fiona";
     currentDrink = "water";
     currentFood = "watermelon";
-    tricksLearned = 1;
+    tricksLearned = 0;
+  }
+
+  public void learnTrick(int indexOfTrick) {
+    tricksLearned++;
+    trickList.get(indexOfTrick).setLearned(true);
   }
 }
+
+
+
+
+
