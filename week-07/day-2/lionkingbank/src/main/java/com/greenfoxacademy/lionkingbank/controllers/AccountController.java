@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -37,7 +38,7 @@ public class AccountController {
   }
 
   @RequestMapping("/web/ListOfAccounts/increaseBalance")
-  public String hit(int index) {
+  public String hit(@RequestParam int index) {
     bankAccountList.getListOfAccounts().get(index).increaseBalance();
     return "redirect:/web/ListOfAccounts";
   }
