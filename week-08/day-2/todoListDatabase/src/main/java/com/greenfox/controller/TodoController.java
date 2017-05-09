@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by Connor on 2017.05.09..
  */
-@Controller("/todo")
+@Controller
+@RequestMapping("/todo")
 public class TodoController {
 
   @Autowired
