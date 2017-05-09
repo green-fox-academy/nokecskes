@@ -34,6 +34,7 @@ public class Todo {
 
   @Override
   public String toString() {
-    return String.format("Todo{ id: %f, title: %s, isUrgent: %b, isDone %b", id, title, isUrgent, isDone );
+    return String.format("Todo{ id: %f, title: %s, isUrgent: %b, isDone %b", id, title, isUrgent,
+            isDone);
   }
 }

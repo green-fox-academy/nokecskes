@@ -8,4 +8,5 @@ import org.springframework.data.repository.CrudRepository;
  * Created by Connor on 2017.05.09..
  */
 public interface TodoRepository extends CrudRepository<Todo, Long> {
+
 }
