@@ -10,7 +10,7 @@ public class ErrorMessage {
   private String error;
 
   public ErrorMessage(String error) {
-    this.error = error;
+    this.error = String.format("Please provide: %s!", error);
   }
 
   public String getError() {
