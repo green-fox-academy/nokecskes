@@ -30,6 +30,6 @@ public class Calculate {
     if (until == 1) {
       return 1;
     }
-    return until * sum(until - 1);
+    return until * factor(until - 1);
   }
 }
