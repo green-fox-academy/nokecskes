@@ -2,7 +2,6 @@ package com.greenfox.controllers;
 
 import com.greenfox.models.Append;
 import com.greenfox.models.Doubling;
-import com.greenfox.models.ErrorMessage;
 import com.greenfox.models.Greeting;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
