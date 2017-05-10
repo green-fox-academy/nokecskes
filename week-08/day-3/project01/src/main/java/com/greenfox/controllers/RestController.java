@@ -2,6 +2,7 @@ package com.greenfox.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greenfox.models.Append;
+import com.greenfox.models.ArrayToCalculate;
 import com.greenfox.models.Calculate;
 import com.greenfox.models.Doubling;
 import com.greenfox.models.Greeting;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by Connor on 2017.05.10..
@@ -51,6 +53,12 @@ public class RestController {
   @RequestMapping(value = "/dountil/{what}", method = RequestMethod.POST)
   public Calculate calculateSumOrFactor(@PathVariable String what, @RequestBody NumberToCalculate numberToCalculate) {
     Calculate calculate = new Calculate(numberToCalculate.getUntil(), what);
+    return calculate;
+  }
+
+  @RequestMapping(value = "/arrays", method = RequestMethod.POST)
+  public Calculate calculateArrayResult(@RequestBody ArrayToCalculate arrayToCalculate) {
+    Calculate calculate = new Calculate(arrayToCalculate.getNumbers(), arrayToCalculate.getWhat());
     return calculate;
   }
 }
