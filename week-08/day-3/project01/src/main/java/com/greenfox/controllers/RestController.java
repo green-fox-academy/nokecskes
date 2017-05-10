@@ -1,10 +1,12 @@
 package com.greenfox.controllers;
 
+import com.greenfox.models.Append;
 import com.greenfox.models.Doubling;
 import com.greenfox.models.ErrorMessage;
 import com.greenfox.models.Greeting;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RestController {
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
-  public ErrorMessage badRequestHandler(MissingServletRequestParameterException e) {
-    return new ErrorMessage(e.getParameterName());
+  public String badRequestHandler(MissingServletRequestParameterException e) {
+    return String.format("Please provide %s!", e.getParameterName());
   }
 
   @RequestMapping(value = "/doubling", method = RequestMethod.GET)
@@ -31,5 +33,13 @@ public class RestController {
           @RequestParam(value = "title", required = true) String title) {
     return new Greeting(name, title);
   }
+
+  @RequestMapping(value = "/appenda/{appendable}", method = RequestMethod.GET)
+  public Append append(@PathVariable String appendable){
+    return new Append(appendable);
+  }
+
+
+
 
 }
