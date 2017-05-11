@@ -22,7 +22,7 @@ public class TodoController {
   ModelAndView m;
 
   @RequestMapping(value = {"/", "/list"})
-  public ModelAndView list(Model model, @RequestParam (value = "isActive", required = false) String isActive) {
+  public ModelAndView list(@RequestParam (value = "isActive", required = false) String isActive) {
     if (isActive == null){
       m.addObject("todos", todoRepository.findAll());
     } else if (isActive.equals("true")) {
@@ -34,8 +34,10 @@ public class TodoController {
     return m;
   }
 
-  /*@RequestMapping(value = {"/add"})
-  public String add () */
+  @RequestMapping(value = {"/add"})
+  public String add () {
+
+  }
 
 }
 
