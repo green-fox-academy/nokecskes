@@ -10,17 +10,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ConnectmysqlApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ConnectmysqlApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(ConnectmysqlApplication.class, args);
+  }
 
-	@Autowired
-	TodoRepository todoRepository;
+  @Autowired
+  TodoRepository todoRepository;
 
-	@Override
-	public void run(String... args) throws Exception {
-		/*todoRepository.save(new Todo("Eat lunch", true, true));
-		todoRepository.save(new Todo("Add todos", true, false));
-		todoRepository.save(new Todo("Feed Fiona, the Hippo"));*/
-	}
+  @Override
+  public void run(String... args) throws Exception {
+
+  }
 }

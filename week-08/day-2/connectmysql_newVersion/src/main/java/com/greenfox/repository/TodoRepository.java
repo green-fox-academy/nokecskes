@@ -9,4 +9,5 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
+  List<Todo> findByIsDoneEquals (boolean isDone);
 }
