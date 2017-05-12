@@ -29,4 +29,12 @@ public class Post {
     timestamp = new Timestamp(System.currentTimeMillis());
     score = 0;
   }
+
+  public void incrementScore() {
+    score++;
+  }
+
+  public void decrementScore() {
+    score--;
+  }
 }
