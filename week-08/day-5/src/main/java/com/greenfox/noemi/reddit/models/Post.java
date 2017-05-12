@@ -1,8 +1,12 @@
 package com.greenfox.noemi.reddit.models;
 
+import java.sql.Timestamp;
 import javax.persistence.Entity;
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by Connor on 2017.05.12..
@@ -12,13 +16,17 @@ import jdk.nashorn.internal.objects.annotations.Setter;
 @Setter
 public class Post {
 
-  @id
-  Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
 
-  /*"id": 25,
-          "title": "Dear JavaScript",
-          "href": "http://9gag.com",
-          "timestamp": 1494339525,
-          "score": 791,*/
+  private String title;
+  private String href;
+  private Timestamp timestamp;
+  private int score;
 
+  public Post() {
+    timestamp = new Timestamp(System.currentTimeMillis());
+    score = 0;
+  }
 }
