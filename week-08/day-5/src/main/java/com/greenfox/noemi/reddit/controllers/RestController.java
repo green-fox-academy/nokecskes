@@ -24,8 +24,6 @@ public class RestController {
     PostList postList = new PostList();
     postList.setPosts(postRepository.findAll());
     return postList;
-    /*Iterable<Post> posts = postRepository.findAll();
-    return posts;*/
   }
 
   @RequestMapping(value = "/posts", method = RequestMethod.POST)

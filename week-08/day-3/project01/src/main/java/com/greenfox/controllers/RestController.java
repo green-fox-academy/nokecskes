@@ -1,6 +1,5 @@
 package com.greenfox.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.greenfox.models.Append;
 import com.greenfox.models.ArrayToCalculate;
 import com.greenfox.models.Calculate;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by Connor on 2017.05.10..
