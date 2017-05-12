@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1 th:text="'TODOS FOR TODAY:'"></h1>
-<a th:href="todo/add"/>
+<h2><a th:href="@{/todo/add}" th:text="'Add new todo'"></a></h2>
 <table>
   <tr>
     <th th:text="ID"></th>

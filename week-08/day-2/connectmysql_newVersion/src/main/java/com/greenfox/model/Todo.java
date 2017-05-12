@@ -23,7 +23,7 @@ public class Todo {
   boolean isUrgent;
   boolean isDone;
 
-  protected Todo() {
+  public Todo() {
   }
 
   public Todo(String title) {
