@@ -1,7 +1,11 @@
 package com.greenfox.groot.controllers;
 
+import com.greenfox.groot.models.Arrow;
+import com.greenfox.groot.models.Ship;
 import com.greenfox.groot.models.ErrorMessage;
 import com.greenfox.groot.models.Groot;
+import com.greenfox.groot.service.ShipStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GuardianController {
 
+  @Autowired
+  Ship ship;
+
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorMessage noParameterHandler() {
     ErrorMessage parameterError = new ErrorMessage("I am Groot!");
@@ -22,8 +29,23 @@ public class GuardianController {
 
   @GetMapping("/groot")
   public Groot translate(@RequestParam String message) {
-    Groot groot = new Groot(message);
-    return groot;
+    return new Groot(message);
   }
 
+  @GetMapping("/yondu")
+  public Arrow calculateSpeed(@RequestParam(value = "distance", required = true) double distance,
+          @RequestParam(value = "time", required = true) double time) {
+    return new Arrow(distance, time);
+  }
+
+  @GetMapping("/rocket")
+  public Ship getShipStatus() {
+    return ship;
+  }
+
+  @GetMapping("/rocket/fill")
+  public ShipStatus fillShip(@RequestParam(value = "caliber") String caliber,
+          @RequestParam(value = "amount") double amount) {
+    return new ShipStatus(ship, caliber, amount);
+  }
 }

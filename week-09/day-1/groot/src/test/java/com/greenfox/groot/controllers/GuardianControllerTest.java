@@ -4,7 +4,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 import com.greenfox.groot.GrootApplication;
-import java.nio.charset.Charset;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,7 +41,7 @@ public class GuardianControllerTest {
   }
 
   @Test
-  public void translate() throws Exception {
+  public void grootWithParameter() throws Exception {
     mockMvc.perform(get("/groot")
             .param("message", "somemessage")
             .contentType(MediaType.APPLICATION_JSON_UTF8))
@@ -53,10 +52,30 @@ public class GuardianControllerTest {
   }
 
   @Test
-  public void noParameterException() throws Exception {
+  public void grootWithoutParameter() throws Exception {
     mockMvc.perform(get("/groot").contentType(MediaType.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$.error", is("I am Groot!")));
+            .andExpect(jsonPath("$.error", is("I am Groot!")))
+            .andDo(print());
+  }
+
+  @Test
+  public void arrowWithParameter() throws Exception {
+    mockMvc.perform(get("/yondu")
+            .param("distance", "100.0")
+            .param("time", "10.0")
+            .contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.speed", is(10.0)))
+            .andDo(print());
+  }
+
+  @Test
+  public void yonduWithoutParameter() throws Exception {
+    mockMvc.perform(get("/yondu").contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.error", is("I am Groot!")))
+            .andDo(print());
   }
 
 }
