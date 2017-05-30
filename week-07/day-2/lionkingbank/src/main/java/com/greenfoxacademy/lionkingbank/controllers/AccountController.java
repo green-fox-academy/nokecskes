@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,31 +49,28 @@ public class AccountController {
     return modelAndView;
   }
 
-  @RequestMapping("/web/addNewBankAccount")
+  @GetMapping("/web/addNewBankAccount")
   public ModelAndView addNewBankAccount() {
     modelAndView.addObject("account", new BankAccount());
     modelAndView.setViewName("addAccount");
     return modelAndView;
   }
 
-  @RequestMapping("/web/addingNewBankAccount")
+  @PostMapping("/web/addingNewBankAccount")
   public String savingNewBankAccount(BankAccount bankAccount) {
     bankAccountList.addNewAccount(bankAccount);
     return "redirect:/web/ListOfAccounts";
   }
 
-  @RequestMapping("/web/ListOfAccounts/increaseBalance")
+  @GetMapping("/web/ListOfAccounts/increaseBalance")
   public String hit(@RequestParam int index) {
     bankAccountList.getListOfAccounts().get(index).increaseBalance();
     return "redirect:/web/ListOfAccounts";
   }
 
-  /*Not working solution, still thinking about it :)
-    public String hit (@RequestParam int id) {
-    int newBalance = bankAccountList.getListOfAccounts().get(id).getBalance() + 10;
-    bankAccountList.getListOfAccounts().get(id).setBalance(newBalance);
+  @RequestMapping("/web/deletingAccount")
+  public String deleteAccount(@RequestParam String accountHolder) {
+    bankAccountList.deleteAccount(accountHolder);
     return "redirect:/web/ListOfAccounts";
-  }*/
-
-
+  }
 }

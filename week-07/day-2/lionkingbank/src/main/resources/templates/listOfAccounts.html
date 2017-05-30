@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1 class="text-center text-capitalize container" th:text="'lion king bank account'"></h1>
-<table class="table table-hover container">
+<table class="table table-hover container-fluid">
   <tr>
     <th class="text-capitalize" th:text="index"></th>
     <th class="text-capitalize" th:text="name"></th>
@@ -29,8 +29,12 @@
     </td>
   </tr>
 </table>
-<div class="container">
-  <a class="btn btn-info" th:href="@{/web/addNewBankAccount}" th:text="'Create new bank account'"></a>
+<div class="container text-left">
+  <a class="btn btn-info col-md-3" th:href="@{/web/addNewBankAccount}" th:text="'Create new bank account'"></a>
+  <form action="/web/deletingAccount" method="post">
+    <input class="col-md-4" type="text" th:placeholder="'Whose account do you want to delete?'" name="accountHolder"/>
+    <input class="btn btn-danger col-md-4" type="submit" th:value="'Delete account'"/>
+  </form>
 </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>

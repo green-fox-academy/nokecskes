@@ -3,17 +3,23 @@
 <head>
   <title>Thymeleaf Exercise 4</title>
   <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
 </head>
 <body>
-<div>
+<h1 class="container text-center text-uppercase" th:text="'add new account'"></h1>
+<div class="container">
   <form action="/web/addingNewBankAccount" method="post" th:object="${account}">
-    Name: <input type="text" th:field="*{name}"/>
-    Animal type: <input type="text" th:field="*{animalType}"/>
-    Currency: <input type="text" th:field="*{currency}"/>
-    Is King? <input type="checkbox" th:field="*{king}"/>
-    Is Good Guy? <input type="checkbox" th:field="*{goodGuy}"/>
-    <input type="submit" th:value="Submit"/>
+    <label th:text="'Name: '"></label>
+    <input type="text" th:field="*{name}"/>
+    <label th:text="'Animal type: '"></label>
+    <input type="text" th:field="*{animalType}"/>
+    <label th:text="'Currency: '"></label>
+    <input type="text" th:field="*{currency}"/>
+    <label th:text="'Is King? '"></label>
+    <input type="checkbox" th:field="*{king}"/>
+    <label th:text="'Is Good Guy?'"></label>
+    <input type="checkbox" th:field="*{goodGuy}"/>
+    <input class="btn-success" type="submit" th:value="Submit"/>
   </form>
 </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>

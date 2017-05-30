@@ -39,4 +39,12 @@ public class BankAccountList {
   public void addNewAccount(BankAccount bankAccount) {
     listOfAccounts.add(bankAccount);
   }
+
+  public void deleteAccount(String accountHolder) {
+    for (int i = 0; i < listOfAccounts.size() ; i++) {
+      if (listOfAccounts.get(i).getName().equals(accountHolder)) {
+        listOfAccounts.remove(i);
+      }
+    }
+  }
 }
