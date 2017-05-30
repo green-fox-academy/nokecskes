@@ -8,9 +8,7 @@ import lombok.Setter;
 /**
  * Created by Connor on 2017.05.03..
  */
-@Getter
-@Setter
-@AllArgsConstructor
+
 public class BankAccountList {
 
   private ArrayList<BankAccount> listOfAccounts;
@@ -29,4 +27,16 @@ public class BankAccountList {
     listOfAccounts.add(pumbaAccount);
   }
 
+  public ArrayList<BankAccount> getListOfAccounts() {
+    return listOfAccounts;
+  }
+
+  public void setListOfAccounts(
+      ArrayList<BankAccount> listOfAccounts) {
+    this.listOfAccounts = listOfAccounts;
+  }
+
+  public void addNewAccount(BankAccount bankAccount) {
+    listOfAccounts.add(bankAccount);
+  }
 }

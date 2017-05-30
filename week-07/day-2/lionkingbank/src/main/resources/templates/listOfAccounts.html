@@ -2,35 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Thymeleaf Exercise 5</title>
-  <link rel="stylesheet" th:href="@{/style.css}"/>
+  <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
   <meta charset="utf-8"/>
 </head>
 <body>
-<table>
+<h1 class="text-center text-capitalize container" th:text="'lion king bank account'"></h1>
+<table class="table table-hover container">
   <tr>
-    <th>Index</th>
-    <th>Name</th>
-    <th>Balance</th>
-    <th>Animal type</th>
+    <th class="text-capitalize" th:text="index"></th>
+    <th class="text-capitalize" th:text="name"></th>
+    <th class="text-capitalize" th:text="balance"></th>
+    <th class="text-capitalize" th:text="'animal type'"></th>
+    <th class="text-capitalize" th:text="'moral status'"></th>
   </tr>
-  <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color:pink'"
-      th:switch="${account.isGoodGuy()}">
+  <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color:gold' : 'color:green'">
     <td th:text="${accountStat.index + 1}"></td>
     <td th:text="${account.name}"></td>
     <td th:text="${#numbers.formatDecimal(account.balance, 0, 2)} + ' ' + ${account.currency}"></td>
     <td th:text="${account.animalType}"></td>
-    <td th:case="true">Good one!</td>
-    <td th:case="false">Bad guy.</td>
+    <td th:text="${account.isGoodGuy()} ? 'Good one!' : 'Bad guy'"></td>
     <td>
-      <!--<form action="@{/increaseBalance(id=${accountStat.index})}" th:object="${account}">-->
       <form action="/web/ListOfAccounts/increaseBalance">
-        <input type="submit" value="Increase balance"/>
+        <input type="submit" value="Increase balance" style="'color: black'"/>
         <input type="hidden" name="index" th:value="${accountStat.index}"/>
       </form>
     </td>
-
   </tr>
 </table>
+<div class="container">
+  <a class="btn btn-info" th:href="@{/web/addNewBankAccount}" th:text="'Create new bank account'"></a>
+</div>
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
 
