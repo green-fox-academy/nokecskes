@@ -1,4 +1,4 @@
-package com.greenfoxacademy.springstart.controllers;
+package com.greenfoxacademy.springstart.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,10 +9,13 @@ import lombok.Getter;
 
 
 @Getter
-@AllArgsConstructor
 public class Greeting {
 
   long id;
   String content;
 
+  public Greeting(long id, String content) {
+    this.id = id;
+    this.content = content;
+  }
 }
