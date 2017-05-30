@@ -2,10 +2,9 @@
 out
 *.iml
 *.xml
-
-
 *.class
 
 .gradle
 build/
 !gradle-wrapper.properties
+!gradle-wrapper.jar
