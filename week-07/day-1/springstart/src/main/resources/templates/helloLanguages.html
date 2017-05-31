@@ -7,7 +7,6 @@
 <body>
 <span th:each="hello : ${hellos}"
       th:text="${hello.getGreeting()}"
-      th:style="'color: rgb(' + ${hello.getRed()} + ',' + ${hello.getGreen()} + ',' + ${hello.getBlue()} +
-      '); font-size:' + ${hello.getFontSize()} + 'px'"/>
+      th:style="|color: rgb(${hello.getRed()}, ${hello.getGreen()}, ${hello.getBlue()}); font-size: ${hello.getFontSize()}px|"/>
 </body>
 </html>
