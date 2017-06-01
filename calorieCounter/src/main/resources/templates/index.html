@@ -4,37 +4,37 @@
   <title>Thymeleaf Exercise 4</title>
   <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" th:href="@{/style.css}"/>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
 </head>
 <body>
 <h1 class="container text-center text-uppercase" th:text="'calorie counter application'"></h1>
 <div class="container">
-  <p th:text="'number of meals: '"></p>
-  <p th:text="'total calories: '"></p>
+  <p th:text="|number of meals: ${#lists.size(meals)}|"></p>
+  <p th:text="|total calories: ${sumOfCalories}|"></p>
   <p><a class="btn btn-info" th:href="@{/add}" th:text="'Add new meal'"></a></p>
 </div>
 <div class="container">
-<div class="col-md-9">
-  <table class="table">
-    <tr>
-      <th class="text-uppercase" th:text="'meal date'"></th>
-      <th class="text-uppercase" th:text="type"></th>
-      <th class="text-uppercase" th:text="description"></th>
-      <th class="text-uppercase" th:text="calories"></th>
-      <th class="text-uppercase" th:text="edit"></th>
-      <th class="text-uppercase" th:text="delete"></th>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-</div>
-<div class="col-md-3"><img th:src="'images/pancake.jpg'" th:width="300"/></div>
+  <div class="col-md-9">
+    <table class="table">
+      <tr>
+        <th class="text-uppercase" th:text="'meal date'"></th>
+        <th class="text-uppercase" th:text="type"></th>
+        <th class="text-uppercase" th:text="description"></th>
+        <th class="text-uppercase" th:text="calories"></th>
+        <th class="text-uppercase" th:text="edit"></th>
+        <th class="text-uppercase" th:text="delete"></th>
+      </tr>
+      <tr th:each="meal : ${meals}">
+        <td th:text="${meal.getDate()}"></td>
+        <td th:text="${meal.getMealType()}"></td>
+        <td th:text="${meal.getDescription()}"></td>
+        <td th:text="${meal.getCalories()}"></td>
+        <td><a th:href="@{'/edit/{id}'(id=${meal.getId()})}" class="glyphicon glyphicon-pencil"></a></td>
+        <td><a th:href="@{'/delete/{id}'(id=${meal.getId()})}" class="glyphicon glyphicon-trash"></a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-3"><img th:src="'images/pancake.jpg'" th:width="300"/></div>
 </div>
 <script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>

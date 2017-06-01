@@ -1,10 +1,13 @@
 package com.greenfox.models;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Created by K on 2017.06.01..
@@ -16,7 +19,10 @@ public class Meal {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
-  private LocalDateTime date;
+  @Temporal(TemporalType.DATE)
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  private Date date;
+
   private String mealType;
   private String description;
   private int calories;
@@ -24,7 +30,7 @@ public class Meal {
   public Meal() {
   }
 
-  public Meal(LocalDateTime date, String mealType, String description, int calories) {
+  public Meal(Date date, String mealType, String description, int calories) {
     this.date = date;
     this.mealType = mealType;
     this.description = description;
@@ -39,11 +45,11 @@ public class Meal {
     this.id = id;
   }
 
-  public LocalDateTime getDate() {
+  public Date getDate() {
     return date;
   }
 
-  public void setDate(LocalDateTime date) {
+  public void setDate(Date date) {
     this.date = date;
   }
 
