@@ -52,8 +52,8 @@ public class MealService {
     return modelAndView;
   }
 
-  public ModelAndView saveMeal(@Valid Meal meal, BindingResult bindingResult){
-    if(!bindingResult.hasErrors()) {
+  public ModelAndView saveMeal(@Valid Meal meal, BindingResult bindingResult) {
+    if (!bindingResult.hasErrors()) {
       mealRepository.save(meal);
       return setUpIndexPage();
     }
@@ -61,11 +61,19 @@ public class MealService {
   }
 
   public ResponseEntity saveMealJson(@Valid Meal meal, BindingResult bindingResult) {
-    if(!bindingResult.hasErrors()){
+    if (!bindingResult.hasErrors()) {
       mealRepository.save(meal);
       return new ResponseEntity(new Status("ok"), HttpStatus.OK);
     }
     return new ResponseEntity(new Status("error"), HttpStatus.BAD_REQUEST);
+  }
+
+  public ResponseEntity deleteMealJson(long id) {
+    if (mealRepository.findById(id) == null) {
+      return new ResponseEntity(new Status("error"), HttpStatus.BAD_REQUEST);
+    }
+    deleteMeal(id);
+    return new ResponseEntity(new Status("ok"), HttpStatus.OK);
   }
 
   public void deleteMeal(long id) {
@@ -88,8 +96,6 @@ public class MealService {
   }
 
   public int calculateNumberOfMeals() {
-    return (int)mealRepository.findAll().spliterator().getExactSizeIfKnown();
+    return (int) mealRepository.findAll().spliterator().getExactSizeIfKnown();
   }
-
-
 }
