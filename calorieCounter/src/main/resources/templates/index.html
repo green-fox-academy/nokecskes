@@ -9,13 +9,13 @@
 <body>
 <h1 class="container text-center text-uppercase" th:text="'calorie counter application'"></h1>
 <div class="container">
-  <p th:text="|number of meals: ${#lists.size(meals)}|"></p>
-  <p th:text="|total calories: ${sumOfCalories}|"></p>
+  <p class="text-uppercase" th:text="|number of meals: ${#lists.size(meals)}|"></p>
+  <p class="text-uppercase" th:text="|total calories: ${sumOfCalories}|"></p>
   <p><a class="btn btn-info" th:href="@{/add}" th:text="'Add new meal'"></a></p>
 </div>
 <div class="container">
   <div class="col-md-9">
-    <table class="table">
+    <table class="table table-striped table-hover">
       <tr>
         <th class="text-uppercase" th:text="'meal date'"></th>
         <th class="text-uppercase" th:text="type"></th>

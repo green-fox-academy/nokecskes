@@ -11,5 +11,4 @@ import org.springframework.stereotype.Repository;
 public interface MealRepository extends CrudRepository<Meal, Long> {
 
   Meal findById(long id);
-
 }
