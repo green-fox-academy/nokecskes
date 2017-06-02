@@ -11,12 +11,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by K on 2017.06.01..
  */
-@org.springframework.web.bind.annotation.RestController
-public class RestController {
+@RestController
+public class CalorieRestController {
 
   @Autowired
   MealRepository mealRepository;

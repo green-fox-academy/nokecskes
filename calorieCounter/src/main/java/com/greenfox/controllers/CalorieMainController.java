@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by K on 2017.06.01..
  */
 @Controller
-public class MainController {
+public class CalorieMainController {
 
   @Autowired
   MealService mealService;
