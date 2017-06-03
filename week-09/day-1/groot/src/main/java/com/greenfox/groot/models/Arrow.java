@@ -1,13 +1,10 @@
 package com.greenfox.groot.models;
 
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Created by Connor on 2017.05.15..
  */
-@Getter
-@Setter
+
 public class Arrow {
 
   private double distance;
@@ -20,5 +17,27 @@ public class Arrow {
     this.speed = distance / time;
   }
 
+  public double getDistance() {
+    return distance;
+  }
 
+  public void setDistance(double distance) {
+    this.distance = distance;
+  }
+
+  public double getTime() {
+    return time;
+  }
+
+  public void setTime(double time) {
+    this.time = time;
+  }
+
+  public double getSpeed() {
+    return speed;
+  }
+
+  public void setSpeed(double speed) {
+    this.speed = speed;
+  }
 }

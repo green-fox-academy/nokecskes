@@ -31,7 +31,6 @@ public class GuardianControllerTest {
 
   private MockMvc mockMvc;
 
-
   @Autowired
   private WebApplicationContext webApplicationContext;
 

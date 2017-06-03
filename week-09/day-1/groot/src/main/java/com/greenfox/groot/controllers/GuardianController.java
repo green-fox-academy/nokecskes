@@ -4,7 +4,8 @@ import com.greenfox.groot.models.Arrow;
 import com.greenfox.groot.models.Ship;
 import com.greenfox.groot.models.ErrorMessage;
 import com.greenfox.groot.models.Groot;
-import com.greenfox.groot.service.ShipStatus;
+import com.greenfox.groot.service.ShipService;
+import com.greenfox.groot.models.ShipStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GuardianController {
 
   @Autowired
-  Ship ship;
+  ShipService shipService;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
   public ErrorMessage noParameterHandler() {
@@ -40,12 +41,13 @@ public class GuardianController {
 
   @GetMapping("/rocket")
   public Ship getShipStatus() {
-    return ship;
+    return shipService.getShip();
   }
+
 
   @GetMapping("/rocket/fill")
   public ShipStatus fillShip(@RequestParam(value = "caliber") String caliber,
           @RequestParam(value = "amount") double amount) {
-    return new ShipStatus(ship, caliber, amount);
+    return shipService.setShipstatus(caliber, amount);
   }
 }

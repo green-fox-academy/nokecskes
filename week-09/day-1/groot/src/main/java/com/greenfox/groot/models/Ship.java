@@ -1,7 +1,5 @@
 package com.greenfox.groot.models;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,8 +7,6 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-@Setter
-@Getter
 public class Ship {
 
   private double caliber25;
@@ -25,5 +21,57 @@ public class Ship {
     this.caliber50 = 0;
     this.shipstatus = "empty";
     this.ready = false;
+  }
+
+  public double getCaliber25() {
+    return caliber25;
+  }
+
+  public void setCaliber25(double caliber25) {
+    this.caliber25 = caliber25;
+  }
+
+  public void increaseCaliber25(double amount) {
+    this.caliber25 += amount;
+  }
+
+  public double getCaliber30() {
+    return caliber30;
+  }
+
+  public void setCaliber30(double caliber30) {
+    this.caliber30 = caliber30;
+  }
+
+  public void increaseCaliber30(double amount) {
+    this.caliber30 += amount;
+  }
+
+  public double getCaliber50() {
+    return caliber50;
+  }
+
+  public void setCaliber50(double caliber50) {
+    this.caliber50 = caliber50;
+  }
+
+  public void increaseCaliber50(double amount) {
+    this.caliber50 += amount;
+  }
+
+  public String getShipstatus() {
+    return shipstatus;
+  }
+
+  public void setShipstatus(String shipstatus) {
+    this.shipstatus = shipstatus;
+  }
+
+  public boolean isReady() {
+    return ready;
+  }
+
+  public void setReady(boolean ready) {
+    this.ready = ready;
   }
 }
