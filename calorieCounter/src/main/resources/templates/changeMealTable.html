@@ -10,14 +10,14 @@
 <h1 class="container" th:text="'Please fill out the following form'"></h1>
 <div class="container">
   <form action="/" method="post" th:object="${meal}">
-    <div>
-      <label th:text="'Date: '"></label>
-      <input type="date" th:field="*{date}"/>
+    <div class="form-group">
+      <label class="control-label" th:text="'Date: '"></label>
+      <input class="form-control" type="date" th:field="*{date}"/>
       <p th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
     </div>
-    <div>
-      <label th:text="'Type: '"></label>
-      <select th:field="*{mealType}">
+    <div class="form-group" >
+      <label class="control-label" th:text="'Type: '"></label>
+      <select class="form-control" th:field="*{mealType}">
         <option th:each="mealtype : ${mealtypes}"
                 th:value="${mealtype.getMealType()}"
                 th:text="${mealtype.getMealType()}">
@@ -25,14 +25,14 @@
       </select>
       <p th:if="${#fields.hasErrors('mealType')}" th:errors="*{mealType}"></p>
     </div>
-    <div>
-      <label th:text="'Description: '"></label>
-      <input type="text" th:field="*{description}"/>
+    <div class="form-group">
+      <label class="control-label" th:text="'Description: '"></label>
+      <input class="form-control" type="text" th:field="*{description}"/>
       <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
     </div>
-    <div>
-      <label th:text="'Calories: '"></label>
-      <input type="number" th:field="*{calories}"/>
+    <div class="form-group">
+      <label class="control-label" th:text="'Calories: '"></label>
+      <input class="form-control" type="number" th:field="*{calories}"/>
       <p th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}"></p>
     </div>
     <div>

@@ -30,7 +30,10 @@
         <td th:text="${meal.getDescription()}"></td>
         <td th:text="${meal.getCalories()}"></td>
         <td><a th:href="@{'/edit/{id}'(id=${meal.getId()})}" class="glyphicon glyphicon-pencil"></a></td>
-        <td><a th:href="@{'/delete/{id}'(id=${meal.getId()})}" class="glyphicon glyphicon-trash"></a></td>
+        <td><a th:href="@{'/delete/{id}'(id=${meal.getId()})}"
+               class="glyphicon glyphicon-trash"
+               onclick="return confirm('Are you sure?')"></a>
+        </td>
       </tr>
     </table>
   </div>
