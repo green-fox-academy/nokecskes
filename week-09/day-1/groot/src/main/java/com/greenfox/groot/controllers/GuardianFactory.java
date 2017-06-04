@@ -1,5 +1,6 @@
 package com.greenfox.groot.controllers;
 
+import com.greenfox.groot.models.ErrorMessage;
 import com.greenfox.groot.models.Food;
 import java.util.ArrayList;
 import org.springframework.context.annotation.Bean;
