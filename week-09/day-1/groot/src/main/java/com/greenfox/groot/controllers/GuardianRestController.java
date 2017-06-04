@@ -2,12 +2,13 @@ package com.greenfox.groot.controllers;
 
 import com.greenfox.groot.models.Arrow;
 import com.greenfox.groot.models.Ship;
-import com.greenfox.groot.models.ErrorMessage;
 import com.greenfox.groot.models.Groot;
 import com.greenfox.groot.service.ErrorMessageService;
 import com.greenfox.groot.service.ShipService;
 import com.greenfox.groot.models.ShipStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,12 +28,12 @@ public class GuardianRestController {
   ErrorMessageService errorMessageService;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
-  public ErrorMessage noParameterHandler() {
-    return errorMessageService.setErrorMessage("I am Groot");
+  public ResponseEntity noParameterHandler() {
+    return new ResponseEntity<>(errorMessageService.setErrorMessage("I am Groot!"), HttpStatus.BAD_REQUEST);
   }
 
   @GetMapping("/groot")
-  public Groot translate(@RequestParam String message) {
+  public Groot translate(@RequestParam("message") String message) {
     return new Groot(message);
   }
 

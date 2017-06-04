@@ -1,12 +1,13 @@
 package com.greenfox.groot.controllers;
 
-import com.greenfox.groot.models.ErrorMessage;
 import com.greenfox.groot.models.Song;
 import com.greenfox.groot.service.ErrorMessageService;
 import com.greenfox.groot.service.SongService;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,8 +33,8 @@ public class SongRestController {
   ErrorMessageService errorMessageService;
 
   @ExceptionHandler(MissingServletRequestParameterException.class)
-  public ErrorMessage noParameterHandler() {
-    return errorMessageService.setErrorMessage("I am Groot");
+  public ResponseEntity noParameterHandler() {
+    return new ResponseEntity<>(errorMessageService.setErrorMessage("I am Groot!"), HttpStatus.BAD_REQUEST);
   }
 
   @GetMapping("/")

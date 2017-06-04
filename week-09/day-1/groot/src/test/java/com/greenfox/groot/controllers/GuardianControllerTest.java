@@ -53,7 +53,7 @@ public class GuardianControllerTest {
   @Test
   public void grootWithoutParameter() throws Exception {
     mockMvc.perform(get("/groot").contentType(MediaType.APPLICATION_JSON_UTF8))
-            .andExpect(status().isOk())
+            .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.error", is("I am Groot!")))
             .andDo(print());
   }
@@ -72,7 +72,7 @@ public class GuardianControllerTest {
   @Test
   public void yonduWithoutParameter() throws Exception {
     mockMvc.perform(get("/yondu").contentType(MediaType.APPLICATION_JSON_UTF8))
-            .andExpect(status().isOk())
+            .andExpect(status().isBadRequest())
             .andExpect(jsonPath("$.error", is("I am Groot!")))
             .andDo(print());
   }

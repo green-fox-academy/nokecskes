@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import lombok.NonNull;
 
 
 /**
@@ -19,13 +20,20 @@ public class Song {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
 
+  @NonNull
   private String author;
+
+  @NonNull
   private String title;
+
+  @NonNull
   private String genre;
 
+  @NonNull
   @Max(value = 2017, message = "Are you from the future?")
   private int year;
 
+  @NonNull
   @Min(value = 1, message = "The rating should be between 1 and 10.")
   @Max(value = 10, message = "The rating should be between 1 and 10.")
   private int rating;
