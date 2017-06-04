@@ -53,7 +53,6 @@ public class GuardianRestController {
       @RequestParam(value = "amount") double amount) {
     return shipService.setShipstatus(caliber, amount);
   }
-
 }
 
   
