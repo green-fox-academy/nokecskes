@@ -12,6 +12,12 @@ public class Food {
   public Food() {
   }
 
+  public Food(String name, int amount, int calorie) {
+    this.name = name;
+    this.amount = amount;
+    this.calorie = calorie;
+  }
+
   public String getName() {
     return name;
   }
