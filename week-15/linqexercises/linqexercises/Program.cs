@@ -23,14 +23,20 @@ namespace linqexercises
             System.Console.WriteLine("Average of the odd numbers: {0}", averageOfOddNumbers);
 
             IEnumerable<int> squaredValueOfPositiveNumbers = n.Where(i => i > 0);
-            System.Console.WriteLine("Squared positive numbers from the list: ");
+            System.Console.WriteLine("Squared positive numbers from the list, SOLUTION 1: ");
             foreach (int i in squaredValueOfPositiveNumbers)
             {
                 System.Console.WriteLine(Math.Pow(i, 2));
             }
 
-            Console.ReadLine();
+            IEnumerable<int> squareOfPositives = n.Where(i => i > 0).Select(i => i * i);
+            System.Console.WriteLine("Squared positive numbers from the list, SOLUTION 2: ");
+            foreach (int i in squareOfPositives)
+            {
+                System.Console.WriteLine(i);
+            }
 
+            Console.ReadLine();
         }
     }
 }
