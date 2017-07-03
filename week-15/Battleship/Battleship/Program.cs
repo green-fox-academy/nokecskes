@@ -8,15 +8,30 @@ namespace Battleship
 {
     class Program
     {
+        public static string[,] map = new string[mapSize, mapSize];
+        public static int hit;
+        public static int miss;
+        public static int total;
         private const int mapSize = 21;
+        private const string unseenMapField = " . ";
+        private const string hitMapField = " X ";
+        private const string missMapField = " O ";
+        private const string corner = "  ";
+        private const int hitMax = 37;
+        private const int missMax = 363;
+        private const int totalMax = 400;
         public enum Letters { A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T };
-        public static readonly string[,] map = new string[mapSize, mapSize];
 
         static void Main(string[] args)
         {
-            //GenerateRandomMap();
-            PrintMap();
-            Console.ReadLine();
+            string userInput = "";
+            do
+            {
+                GenerateRandomMap();
+                PrintMap();
+                ValidUserInput(Console.ReadLine());
+                
+            } while (!EndOfGame());
         }
 
         private static void GenerateRandomMap()
@@ -29,7 +44,7 @@ namespace Battleship
                     {
                         if (j == 0)
                         {
-                            map[i, j] = "  ";
+                            map[i, j] = corner;
                         }
                         else
                         {
@@ -43,7 +58,7 @@ namespace Battleship
                     }
                     else
                     {
-                        map[i, j] = " . ";
+                        map[i, j] = unseenMapField;
                     }
                 }
             }
@@ -59,6 +74,27 @@ namespace Battleship
                 }
                 System.Console.WriteLine();
             }
+        }
+
+        private static bool EndOfGame()
+        {
+            if (hit == hitMax || miss == missMax)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private static void ValidUserInput(string userInput)
+        {
+            string[] substring = userInput.Split('-');
+            foreach (string part in substring)
+            {
+                System.Console.WriteLine(part);
+
+            }
+
+
         }
     }
 }
