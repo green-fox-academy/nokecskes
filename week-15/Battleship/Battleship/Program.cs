@@ -9,17 +9,44 @@ namespace Battleship
     class Program
     {
         private const int mapSize = 21;
-        public static readonly string[] letters = { "  ", " A ", " B ", " C ", " D ", " E ", " F ", " G ", " H ", " I ", " J ", " K ", " L ", " M ", " N ", " O ", " P ", " Q ", " R ", " S ", " T " };
-        public enum Letters { A, B, C };
+        public enum Letters { A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T };
+        public static readonly string[,] map = new string[mapSize, mapSize];
 
         static void Main(string[] args)
         {
+            //GenerateRandomMap();
             PrintMap();
-            Console.WriteLine(Enum.GetName(typeof(Letters), 1));
-
             Console.ReadLine();
-            
+        }
 
+        private static void GenerateRandomMap()
+        {
+            for (int i = 0; i < mapSize; i++)
+            {
+                for (int j = 0; j < mapSize; j++)
+                {
+                    if (i == 0)
+                    {
+                        if (j == 0)
+                        {
+                            map[i, j] = "  ";
+                        }
+                        else
+                        {
+                            map[i, j] = string.Format(" {0} ", Enum.GetName(typeof(Letters), j - 1));
+                        }
+
+                    }
+                    else if (j == 0)
+                    {
+                        map[i, j] = i.ToString("00");
+                    }
+                    else
+                    {
+                        map[i, j] = " . ";
+                    }
+                }
+            }
         }
 
         private static void PrintMap()
@@ -28,18 +55,7 @@ namespace Battleship
             {
                 for (int j = 0; j < mapSize; j++)
                 {
-                    if (i == 0)
-                    {
-                        System.Console.Write(letters[j]);
-                    }
-                    else if (j == 0)
-                    {
-                        System.Console.Write(i.ToString("00"));
-                    }
-                    else
-                    {
-                        System.Console.Write(" . ");
-                    }
+                    System.Console.Write(map[i, j]);
                 }
                 System.Console.WriteLine();
             }
