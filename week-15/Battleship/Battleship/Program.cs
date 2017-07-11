@@ -12,6 +12,8 @@ namespace Battleship
         public static int hit;
         public static int miss;
         public static int total;
+        public static int userInputColumn;
+        public static int userInputRow;
         private const int mapSize = 21;
         private const string unseenMapField = " . ";
         private const string hitMapField = " X ";
@@ -24,13 +26,21 @@ namespace Battleship
 
         static void Main(string[] args)
         {
+            GenerateRandomMap();
+            PrintMap();
             string userInput = "";
             do
             {
-                GenerateRandomMap();
-                PrintMap();
-                ValidUserInput(Console.ReadLine());
-                
+                if (!ValidUserInput(Console.ReadLine()))
+                {
+                    System.Console.WriteLine("Invalid input! The form should be e.g.: B-12");
+                }
+                else
+                {
+                    GenerateRandomMap();
+                    PrintMap();
+                }
+
             } while (!EndOfGame());
         }
 
@@ -85,14 +95,16 @@ namespace Battleship
             return false;
         }
 
-        private static void ValidUserInput(string userInput)
+        private static bool ValidUserInput(string userInput)
         {
             string[] substring = userInput.Split('-');
-            foreach (string part in substring)
+            if (substring.Length != 2)
             {
-                System.Console.WriteLine(part);
-
+                return false;
             }
+            //Todo: save userinputColumn from enums
+            userInputRow = Int32.Parse(substring[1]);
+            return true;
 
 
         }
